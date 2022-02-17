@@ -1,27 +1,29 @@
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
-import Card from '@mui/material/Card';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import ToggleButton from '@mui/material/ToggleButton'
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { ExplorerTokenMarket, ITokenRate } from "ergo-market-lib";
+import { renderFractions } from "ergo-market-lib/dist/math";
+import { ExplorerRequestManager } from "ergo-market-lib/dist/ExplorerRequestManager";
 import moment from 'moment';
 import * as React from "react";
 import { hot } from "react-hot-loader/root";
+
 import historicalTickerData from './ticker.json';
 import { tokenInfosById } from './tokenDictionary';
-import { ChartData, getChart } from './MyChart';
+import { PoolCharts } from './PoolCharts';
 import JSONBigInt from 'json-bigint';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './theme';
+import { RatesDictionary, TransactionList } from './types';
 
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
+
+const explorerHttpClient = new ExplorerRequestManager();
 
 interface AppProps {
   name: string;
@@ -32,34 +34,8 @@ interface AppState {
   ratesByToken: { [key: string]: ITokenRate[] }
 };
 
-type RatesDictionary = { [key: string]: ITokenRate[] };
 (window as any).JSONBI = JSONBI;
-const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string, valueField: string, argumentField: string, tokenName: string) => {
-  if (ratesByToken[tokenRateKey].map === undefined) return (<Typography key={tokenName} variant="h3" align="center">{tokenName}</Typography>)
-  const priceData = ratesByToken[tokenRateKey].map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: rate.ergPerToken}))
-  const ergMarketSizeData = ratesByToken[tokenRateKey]
-    .filter((rate: ITokenRate) => rate.ergAmount !== undefined)
-    .map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: (parseFloat(rate.ergAmount) + (JSONBI.parse(rate.tokenAmount) * parseFloat(rate.ergPerToken.toString()))) }))
-  return <>
-    <Card key={tokenName} sx={{ m: 2 }} variant="outlined">
-      <Typography variant="h3" align="center">{tokenName}</Typography>
-      <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2, width: '100%'}}>
-          <Typography variant="h6" align="center">Price per token in Σ</Typography>
-          { getChart(tokenName, priceData, `1 Σ = ~${(1 / (priceData.slice(-1)[0].value)).toFixed(2)} ${tokenName}`) }
-        </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2, width: '100%' }}>
-          <Typography variant="h6" align="center">Market value in Σ</Typography>
-          { getChart(tokenName, ergMarketSizeData, `~${JSONBI.parse(ergMarketSizeData.slice(-1)[0].value.toString()).toFixed(2)} Σ`) }
-        </Box>
-      </Box>
-    </Card>
-  </>
-}
 
-const tokenKeyToChartData = (tokenKey: string, ratesByToken: { [key: string]: ITokenRate[] }) => {
-  
-}
 
 let startingTickerData: RatesDictionary = {};
 let postSeedTickerData: RatesDictionary = {};
@@ -76,7 +52,7 @@ const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictiona
     const ratesForThisToken = acc[tokenKey] = acc[tokenKey] || [];
     const previousRate = ratesForThisToken.pop();
     previousRate && ratesForThisToken.push(previousRate);
-    if(previousRate?.ergPerToken !== cur.ergPerToken || previousRate?.ergAmount !== cur.ergAmount) ratesForThisToken.push(cur);
+    if(previousRate?.ergPerToken !== cur.ergPerToken || previousRate?.ergAmount !== cur.ergAmount || previousRate?.tokenAmount !== cur.tokenAmount) ratesForThisToken.push(cur);
     if (ratesForThisToken.length > 5000) ratesForThisToken.splice(0, 1);
     return acc;
   }, ratesDict);
@@ -91,6 +67,12 @@ addTokenRatesToDictionary(sortedHistoricalData, startingTickerData);
 export const App = (props: AppProps) => {
   const { name } = props;
   const [ratesByToken, setRatesByToken] = React.useState<RatesDictionary>(startingTickerData);
+  const [chosenTokensToDisplay, setChosenTokensToDisplay] = React.useState<string[]>([]);
+  const [addressToAnalyze, setAddressToAnalyze] = React.useState<string>('');
+
+  const handleAddressChange = (addressTextFieldChangeEvent: any) => {
+    setAddressToAnalyze(addressTextFieldChangeEvent.target.value);
+  };
 
   const getRates = async () => {
     const rates = await explorerTokenMarket.getTokenRates();
@@ -110,33 +92,51 @@ export const App = (props: AppProps) => {
     setMarketRequestsInterval(-1);
   }
   const onStopOrplayChange = (event: any, newValue: any) => {
-    console.log('AAAAA', newValue)
     if (newValue === 'stop') stopRetrievingData();
     else resumeRetrievingData();
   }
 
-  const tokenRateKeys = Object.keys(ratesByToken);
+  const handleTokenChange = (a: any, chosenTokens: string[]) => {
+    setChosenTokensToDisplay(chosenTokens)
+  }
+  const tokenRateKeysToChooseFrom = Object.keys(ratesByToken);
+  const tokenRateKeys = chosenTokensToDisplay.length < 1 ? Object.keys(ratesByToken) : chosenTokensToDisplay;
+
+  const runAddressAnalysis = async () => {
+  }
   return (
     <>
     <ThemeProvider theme={theme}>
     <CssBaseline />
     
     <Paper>
-    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
       <ToggleButtonGroup color="primary" value={ marketRequestsInterval === undefined ? 'stop' : 'play'} exclusive onChange={onStopOrplayChange}>
         <ToggleButton key="stop" value="stop">Stop</ToggleButton>
         <ToggleButton key="play" value="play">play</ToggleButton>
       </ToggleButtonGroup>
     </Box>
-    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-        {tokenRateKeys.map((tokenRateKey) => {
-          return displayChartForData(ratesByToken, tokenRateKey, 'ergPerToken', 'timestamp', tokenRateKey);
+    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
+      <ToggleButtonGroup color="primary" value={ chosenTokensToDisplay } onChange={handleTokenChange}>
+        {tokenRateKeysToChooseFrom.map((tokenRateKey) => {
+          return <ToggleButton key={tokenRateKey} value={tokenRateKey}>{tokenRateKey}</ToggleButton>
         })}
+      </ToggleButtonGroup>
     </Box>
+    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
+      {/* <TextField label="Address" variant="filled" onChange={handleAddressChange} value={addressToAnalyze} /> */}
+      <TextField label="Address" variant="filled" InputProps={{endAdornment: <Button variant="contained" onClick={runAddressAnalysis as any}>Analyze</Button>}} />
+    </Box>
+    <PoolCharts
+      tokenRateKeys={tokenRateKeys}
+      ratesByToken={ratesByToken}
+      />
     </Paper>
     </ThemeProvider>
     </>
   );
 }
+
+
 
 export default hot(App);

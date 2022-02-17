@@ -54,7 +54,7 @@ const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitl
       smooth: true
     },
     grid: {
-      containLabel: true, left: 10, right: 20, bottom: -25, top: 50
+      containLabel: true, left: 10, right: 20, bottom: -25, top: 50,
     },
     series: {
       data: data.map(({timestamp, value}) => ({

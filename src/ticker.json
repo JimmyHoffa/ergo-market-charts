@@ -110151,5 +110151,2795 @@
       },
       "tokenName": "xyzpad"
     }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T15:55:14.572Z",
+      "ergPerToken": "0.000729300",
+      "tokenPerErg": "1371",
+      "ergAmount": "57889.788739113",
+      "tokenAmount": "79377144",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T15:55:14.572Z",
+      "ergPerToken": "0.298452804",
+      "tokenPerErg": "3.35",
+      "ergAmount": "159917.226193237",
+      "tokenAmount": "535820.82",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T15:55:14.572Z",
+      "ergPerToken": "0.009046798",
+      "tokenPerErg": "110.536341",
+      "ergAmount": "28930.370714697",
+      "tokenAmount": "3197857.330417",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T15:55:14.572Z",
+      "ergPerToken": "0.040314884",
+      "tokenPerErg": "24.80",
+      "ergAmount": "96412.169962506",
+      "tokenAmount": "2391478.32",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T15:55:14.572Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T15:55:14.573Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T15:55:14.573Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:05:30.589Z",
+      "ergPerToken": "0.009044515",
+      "tokenPerErg": "110.564242",
+      "ergAmount": "28926.727494704",
+      "tokenAmount": "3198261.706851",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:05:30.589Z",
+      "ergPerToken": "0.000729300",
+      "tokenPerErg": "1371",
+      "ergAmount": "57889.788739113",
+      "tokenAmount": "79377144",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:05:30.589Z",
+      "ergPerToken": "0.298452804",
+      "tokenPerErg": "3.35",
+      "ergAmount": "159917.226193237",
+      "tokenAmount": "535820.82",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:05:30.589Z",
+      "ergPerToken": "0.040314884",
+      "tokenPerErg": "24.80",
+      "ergAmount": "96412.169962506",
+      "tokenAmount": "2391478.32",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:05:30.589Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:05:30.590Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:05:30.590Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:17:47.004Z",
+      "ergPerToken": "0.298466207",
+      "tokenPerErg": "3.35",
+      "ergAmount": "159920.826193237",
+      "tokenAmount": "535808.82",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:17:47.004Z",
+      "ergPerToken": "0.009044515",
+      "tokenPerErg": "110.564242",
+      "ergAmount": "28926.727494704",
+      "tokenAmount": "3198261.706851",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:17:47.004Z",
+      "ergPerToken": "0.000729300",
+      "tokenPerErg": "1371",
+      "ergAmount": "57889.788739113",
+      "tokenAmount": "79377144",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:17:47.004Z",
+      "ergPerToken": "0.040314884",
+      "tokenPerErg": "24.80",
+      "ergAmount": "96412.169962506",
+      "tokenAmount": "2391478.32",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:17:47.004Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:17:47.004Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:17:47.004Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:18:03.004Z",
+      "ergPerToken": "0.298466207",
+      "tokenPerErg": "3.35",
+      "ergAmount": "159920.826193237",
+      "tokenAmount": "535808.82",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:18:03.006Z",
+      "ergPerToken": "0.009044515",
+      "tokenPerErg": "110.564242",
+      "ergAmount": "28926.727494704",
+      "tokenAmount": "3198261.706851",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:18:03.007Z",
+      "ergPerToken": "0.000729300",
+      "tokenPerErg": "1371",
+      "ergAmount": "57889.788739113",
+      "tokenAmount": "79377144",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:18:03.008Z",
+      "ergPerToken": "0.040314884",
+      "tokenPerErg": "24.80",
+      "ergAmount": "96412.169962506",
+      "tokenAmount": "2391478.32",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:18:03.008Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:18:03.009Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:18:03.010Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:21:06.097Z",
+      "ergPerToken": "0.040352451",
+      "tokenPerErg": "24.78",
+      "ergAmount": "96457.169962506",
+      "tokenAmount": "2390367.09",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:21:06.098Z",
+      "ergPerToken": "0.008907125",
+      "tokenPerErg": "112.269667",
+      "ergAmount": "28706.6210629",
+      "tokenAmount": "3222882.788827",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:21:06.098Z",
+      "ergPerToken": "0.298466207",
+      "tokenPerErg": "3.35",
+      "ergAmount": "159920.826193237",
+      "tokenAmount": "535808.82",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:21:06.099Z",
+      "ergPerToken": "0.000729300",
+      "tokenPerErg": "1371",
+      "ergAmount": "57889.788739113",
+      "tokenAmount": "79377144",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:21:06.099Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:21:06.100Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:21:06.100Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:28:22.357Z",
+      "ergPerToken": "0.299740841",
+      "tokenPerErg": "3.34",
+      "ergAmount": "160262.798356618",
+      "tokenAmount": "534671.21",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:28:22.357Z",
+      "ergPerToken": "0.008907125",
+      "tokenPerErg": "112.269667",
+      "ergAmount": "28706.117740488",
+      "tokenAmount": "3222826.280988",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:28:22.358Z",
+      "ergPerToken": "0.040352451",
+      "tokenPerErg": "24.78",
+      "ergAmount": "96457.169962506",
+      "tokenAmount": "2390367.09",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:28:22.358Z",
+      "ergPerToken": "0.000729300",
+      "tokenPerErg": "1371",
+      "ergAmount": "57889.788739113",
+      "tokenAmount": "79377144",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:28:22.358Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:28:22.359Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:28:22.359Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:32:28.807Z",
+      "ergPerToken": "0.008871925",
+      "tokenPerErg": "112.715114",
+      "ergAmount": "28649.452238712",
+      "tokenAmount": "3229226.280988",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:32:28.807Z",
+      "ergPerToken": "0.300147685",
+      "tokenPerErg": "3.33",
+      "ergAmount": "160371.798356618",
+      "tokenAmount": "534309.63",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:32:28.808Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:32:28.809Z",
+      "ergPerToken": "0.040352451",
+      "tokenPerErg": "24.78",
+      "ergAmount": "96457.169962506",
+      "tokenAmount": "2390367.09",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:32:28.809Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:32:28.809Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:32:28.810Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:39:38.316Z",
+      "ergPerToken": "0.008857958",
+      "tokenPerErg": "112.892842",
+      "ergAmount": "28626.937032793",
+      "tokenAmount": "3231776.280988",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:39:38.317Z",
+      "ergPerToken": "0.300147685",
+      "tokenPerErg": "3.33",
+      "ergAmount": "160371.798356618",
+      "tokenAmount": "534309.63",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:39:38.317Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:39:38.318Z",
+      "ergPerToken": "0.040352451",
+      "tokenPerErg": "24.78",
+      "ergAmount": "96457.169962506",
+      "tokenAmount": "2390367.09",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:39:38.318Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:39:38.318Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:39:38.318Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:42:42.159Z",
+      "ergPerToken": "0.301209097",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160655.820996101",
+      "tokenAmount": "533369.75",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:42:42.159Z",
+      "ergPerToken": "0.008857958",
+      "tokenPerErg": "112.892842",
+      "ergAmount": "28626.937032793",
+      "tokenAmount": "3231776.280988",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:42:42.160Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:42:42.160Z",
+      "ergPerToken": "0.040352451",
+      "tokenPerErg": "24.78",
+      "ergAmount": "96457.169962506",
+      "tokenAmount": "2390367.09",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:42:42.161Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:42:42.161Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:42:42.162Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:51:54.983Z",
+      "ergPerToken": "0.008858143",
+      "tokenPerErg": "112.890481",
+      "ergAmount": "28627.237032793",
+      "tokenAmount": "3231742.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:51:54.983Z",
+      "ergPerToken": "0.301209097",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160655.820996101",
+      "tokenAmount": "533369.75",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:51:54.984Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:51:54.984Z",
+      "ergPerToken": "0.040352451",
+      "tokenPerErg": "24.78",
+      "ergAmount": "96457.169962506",
+      "tokenAmount": "2390367.09",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:51:54.984Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:51:54.984Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:51:54.985Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T16:52:56.191Z",
+      "ergPerToken": "0.040771040",
+      "tokenPerErg": "24.53",
+      "ergAmount": "96957.169962506",
+      "tokenAmount": "2378089.23",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T16:52:56.191Z",
+      "ergPerToken": "0.008858143",
+      "tokenPerErg": "112.890481",
+      "ergAmount": "28627.237032793",
+      "tokenAmount": "3231742.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T16:52:56.191Z",
+      "ergPerToken": "0.301209097",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160655.820996101",
+      "tokenAmount": "533369.75",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T16:52:56.192Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T16:52:56.192Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T16:52:56.192Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T16:52:56.192Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T17:01:07.217Z",
+      "ergPerToken": "0.041116798",
+      "tokenPerErg": "24.32",
+      "ergAmount": "97368.246348286",
+      "tokenAmount": "2368089.23",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T17:01:07.217Z",
+      "ergPerToken": "0.301227796",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160660.820996101",
+      "tokenAmount": "533353.24",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T17:01:07.218Z",
+      "ergPerToken": "0.008858143",
+      "tokenPerErg": "112.890481",
+      "ergAmount": "28627.237032793",
+      "tokenAmount": "3231742.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T17:01:07.218Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T17:01:07.219Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T17:01:07.219Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T17:01:07.219Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T17:08:17.450Z",
+      "ergPerToken": "0.041963991",
+      "tokenPerErg": "23.83",
+      "ergAmount": "98368.246348286",
+      "tokenAmount": "2344110.84",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T17:08:17.450Z",
+      "ergPerToken": "0.301227796",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160660.820996101",
+      "tokenAmount": "533353.24",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T17:08:17.450Z",
+      "ergPerToken": "0.008858143",
+      "tokenPerErg": "112.890481",
+      "ergAmount": "28627.237032793",
+      "tokenAmount": "3231742.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T17:08:17.450Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T17:08:17.450Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T17:08:17.451Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T17:08:17.451Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T17:11:24.919Z",
+      "ergPerToken": "0.301620113",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160765.670996101",
+      "tokenAmount": "533007.13",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T17:11:24.919Z",
+      "ergPerToken": "0.008847211",
+      "tokenPerErg": "113.029971",
+      "ergAmount": "28609.602481996",
+      "tokenAmount": "3233742.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T17:11:24.920Z",
+      "ergPerToken": "0.042004873",
+      "tokenPerErg": "23.81",
+      "ergAmount": "98416.246348286",
+      "tokenAmount": "2342972.14",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T17:11:24.920Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T17:11:24.920Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T17:11:24.920Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T17:11:24.921Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T17:14:29.757Z",
+      "ergPerToken": "0.041650803",
+      "tokenPerErg": "24.01",
+      "ergAmount": "98419.281201173",
+      "tokenAmount": "2362962.41",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T17:14:29.757Z",
+      "ergPerToken": "0.301620113",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160765.670996101",
+      "tokenAmount": "533007.13",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T17:14:29.757Z",
+      "ergPerToken": "0.008847211",
+      "tokenPerErg": "113.029971",
+      "ergAmount": "28609.602481996",
+      "tokenAmount": "3233742.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T17:14:29.757Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T17:14:29.758Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T17:14:29.758Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T17:14:29.759Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T17:16:32.889Z",
+      "ergPerToken": "0.040784962",
+      "tokenPerErg": "24.52",
+      "ergAmount": "97392.972996336",
+      "tokenAmount": "2387962.85",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T17:16:32.889Z",
+      "ergPerToken": "0.301620113",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160765.670996101",
+      "tokenAmount": "533007.13",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T17:16:32.889Z",
+      "ergPerToken": "0.008847211",
+      "tokenPerErg": "113.029971",
+      "ergAmount": "28609.602481996",
+      "tokenAmount": "3233742.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T17:16:32.889Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "57886.11063284",
+      "tokenAmount": "79382213",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T17:16:32.890Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T17:16:32.890Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T17:16:32.890Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T17:21:39.593Z",
+      "ergPerToken": "0.008847211",
+      "tokenPerErg": "113.029971",
+      "ergAmount": "28612.91133889",
+      "tokenAmount": "3234116.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T17:21:39.593Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T17:21:39.593Z",
+      "ergPerToken": "0.040698655",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97290.076662496",
+      "tokenAmount": "2390498.56",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T17:21:39.594Z",
+      "ergPerToken": "0.301620113",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160765.670996101",
+      "tokenAmount": "533007.13",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T17:21:39.594Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T17:21:39.594Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T17:21:39.594Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T17:30:52.429Z",
+      "ergPerToken": "0.301620113",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160770.650744173",
+      "tokenAmount": "533023.64",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T17:30:52.429Z",
+      "ergPerToken": "0.008840662",
+      "tokenPerErg": "113.113697",
+      "ergAmount": "28602.341058718",
+      "tokenAmount": "3235316.548959",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T17:30:52.429Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T17:30:52.430Z",
+      "ergPerToken": "0.040698655",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97290.076662496",
+      "tokenAmount": "2390498.56",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T17:30:52.430Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T17:30:52.432Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T17:30:52.432Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T17:40:06.266Z",
+      "ergPerToken": "0.008840971",
+      "tokenPerErg": "113.109751",
+      "ergAmount": "28602.841058718",
+      "tokenAmount": "3235260.219319",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T17:40:06.266Z",
+      "ergPerToken": "0.301597266",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160764.576706524",
+      "tokenAmount": "533043.88",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T17:40:06.266Z",
+      "ergPerToken": "0.040698655",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97371.473972906",
+      "tokenAmount": "2392498.56",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T17:40:06.266Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T17:40:06.267Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T17:40:06.267Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T17:40:06.267Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T18:07:44.691Z",
+      "ergPerToken": "0.008781276",
+      "tokenPerErg": "113.878669",
+      "ergAmount": "28506.306291634",
+      "tokenAmount": "3246260.219319",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T18:07:44.691Z",
+      "ergPerToken": "0.301597266",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160764.576706524",
+      "tokenAmount": "533043.88",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T18:07:44.691Z",
+      "ergPerToken": "0.040698655",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97371.473972906",
+      "tokenAmount": "2392498.56",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T18:07:44.692Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T18:07:44.692Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T18:07:44.692Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T18:07:44.692Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T18:09:47.283Z",
+      "ergPerToken": "0.008782506",
+      "tokenPerErg": "113.862723",
+      "ergAmount": "28508.306291634",
+      "tokenAmount": "3246033.388862",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T18:09:47.283Z",
+      "ergPerToken": "0.040695260",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97367.420555592",
+      "tokenAmount": "2392598.56",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T18:09:47.283Z",
+      "ergPerToken": "0.301597266",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160764.576706524",
+      "tokenAmount": "533043.88",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T18:09:47.284Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T18:09:47.284Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T18:09:47.284Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T18:09:47.284Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T18:15:55.927Z",
+      "ergPerToken": "0.008793377",
+      "tokenPerErg": "113.721947",
+      "ergAmount": "28525.98135212",
+      "tokenAmount": "3244030.145501",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T18:15:55.927Z",
+      "ergPerToken": "0.040695260",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97367.420555592",
+      "tokenAmount": "2392598.56",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T18:15:55.927Z",
+      "ergPerToken": "0.301597266",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160764.576706524",
+      "tokenAmount": "533043.88",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T18:15:55.927Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T18:15:55.928Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T18:15:55.928Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T18:15:55.928Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T18:22:04.289Z",
+      "ergPerToken": "0.009587008",
+      "tokenPerErg": "104.307835",
+      "ergAmount": "29787.98135212",
+      "tokenAmount": "3107119.850896",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T18:22:04.289Z",
+      "ergPerToken": "0.040695260",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97416.4164276",
+      "tokenAmount": "2393802.53",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T18:22:04.289Z",
+      "ergPerToken": "0.301597266",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160764.576706524",
+      "tokenAmount": "533043.88",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T18:22:04.289Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T18:22:04.289Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T18:22:04.289Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T18:22:04.289Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T18:26:10.012Z",
+      "ergPerToken": "0.040699429",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97421.4164276",
+      "tokenAmount": "2393680.17",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T18:26:10.012Z",
+      "ergPerToken": "0.009502086",
+      "tokenPerErg": "105.240047",
+      "ergAmount": "29656.021366817",
+      "tokenAmount": "3121001.08376",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T18:26:10.012Z",
+      "ergPerToken": "0.301597266",
+      "tokenPerErg": "3.32",
+      "ergAmount": "160764.576706524",
+      "tokenAmount": "533043.88",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T18:26:10.013Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T18:26:10.013Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T18:26:10.013Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T18:26:10.013Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T18:54:49.545Z",
+      "ergPerToken": "0.302049958",
+      "tokenPerErg": "3.31",
+      "ergAmount": "160885.487690361",
+      "tokenAmount": "532645.29",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T18:54:49.545Z",
+      "ergPerToken": "0.040699429",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97421.4164276",
+      "tokenAmount": "2393680.17",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T18:54:49.545Z",
+      "ergPerToken": "0.009502086",
+      "tokenPerErg": "105.240047",
+      "ergAmount": "29656.021366817",
+      "tokenAmount": "3121001.08376",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T18:54:49.545Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T18:54:49.545Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T18:54:49.545Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T18:54:49.545Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T19:01:59.476Z",
+      "ergPerToken": "0.040695243",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97416.416085415",
+      "tokenAmount": "2393803.53",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T19:01:59.476Z",
+      "ergPerToken": "0.302049958",
+      "tokenPerErg": "3.31",
+      "ergAmount": "160885.487690361",
+      "tokenAmount": "532645.29",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T19:01:59.477Z",
+      "ergPerToken": "0.009502086",
+      "tokenPerErg": "105.240047",
+      "ergAmount": "29656.021366817",
+      "tokenAmount": "3121001.08376",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T19:01:59.477Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T19:01:59.477Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T19:01:59.477Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T19:01:59.477Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T19:03:01.112Z",
+      "ergPerToken": "0.302828030",
+      "tokenPerErg": "3.30",
+      "ergAmount": "161093.092098665",
+      "tokenAmount": "531962.29",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T19:03:01.112Z",
+      "ergPerToken": "0.040695243",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97416.416085415",
+      "tokenAmount": "2393803.53",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T19:03:01.113Z",
+      "ergPerToken": "0.009502086",
+      "tokenPerErg": "105.240047",
+      "ergAmount": "29656.021366817",
+      "tokenAmount": "3121001.08376",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T19:03:01.113Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T19:03:01.113Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T19:03:01.113Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T19:03:01.113Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T19:14:18.105Z",
+      "ergPerToken": "0.306344677",
+      "tokenPerErg": "3.26",
+      "ergAmount": "162028.092098665",
+      "tokenAmount": "528907.81",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T19:14:18.105Z",
+      "ergPerToken": "0.009502086",
+      "tokenPerErg": "105.240047",
+      "ergAmount": "29675.025539241",
+      "tokenAmount": "3123001.08376",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T19:14:18.105Z",
+      "ergPerToken": "0.040695243",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97416.416085415",
+      "tokenAmount": "2393803.53",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T19:14:18.105Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T19:14:18.105Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T19:14:18.106Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T19:14:18.106Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T19:16:21.108Z",
+      "ergPerToken": "0.009499050",
+      "tokenPerErg": "105.273681",
+      "ergAmount": "29670.294254768",
+      "tokenAmount": "3123501.08376",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T19:16:21.108Z",
+      "ergPerToken": "0.306344677",
+      "tokenPerErg": "3.26",
+      "ergAmount": "162028.092098665",
+      "tokenAmount": "528907.81",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T19:16:21.109Z",
+      "ergPerToken": "0.040695243",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97416.416085415",
+      "tokenAmount": "2393803.53",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T19:16:21.109Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T19:16:21.109Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T19:16:21.109Z",
+      "ergPerToken": "0.001151214",
+      "tokenPerErg": "868.64839243",
+      "ergAmount": "973.887737481",
+      "tokenAmount": "845966.01756863",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T19:16:21.109Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
+  ],
+  [
+    {
+      "timestamp": "2022-02-17T19:21:28.737Z",
+      "ergPerToken": "0.001163035",
+      "tokenPerErg": "859.81918399",
+      "ergAmount": "978.887737481",
+      "tokenAmount": "841666.4556625",
+      "token": {
+        "name": "LunaDog",
+        "tokenId": "5a34d53ca483924b9a6aa0c771f11888881b516a8d1a9cdc535d063fe26d065e",
+        "decimals": 8
+      },
+      "tokenName": "LunaDog"
+    },
+    {
+      "timestamp": "2022-02-17T19:21:28.738Z",
+      "ergPerToken": "0.009499050",
+      "tokenPerErg": "105.273681",
+      "ergAmount": "29670.294254768",
+      "tokenAmount": "3123501.08376",
+      "token": {
+        "name": "NETA",
+        "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+        "decimals": 6
+      },
+      "tokenName": "NETA"
+    },
+    {
+      "timestamp": "2022-02-17T19:21:28.738Z",
+      "ergPerToken": "0.306344677",
+      "tokenPerErg": "3.26",
+      "ergAmount": "162028.092098665",
+      "tokenAmount": "528907.81",
+      "token": {
+        "name": "SigUSD",
+        "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+        "decimals": 2
+      },
+      "tokenName": "SigUSD"
+    },
+    {
+      "timestamp": "2022-02-17T19:21:28.738Z",
+      "ergPerToken": "0.040695243",
+      "tokenPerErg": "24.57",
+      "ergAmount": "97416.416085415",
+      "tokenAmount": "2393803.53",
+      "token": {
+        "name": "ergopad",
+        "tokenId": "d71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413",
+        "decimals": 2
+      },
+      "tokenName": "ergopad"
+    },
+    {
+      "timestamp": "2022-02-17T19:21:28.738Z",
+      "ergPerToken": "0.000729208",
+      "tokenPerErg": "1371",
+      "ergAmount": "58134.724474089",
+      "tokenAmount": "79723150",
+      "token": {
+        "name": "SigRSV",
+        "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+        "decimals": 0
+      },
+      "tokenName": "SigRSV"
+    },
+    {
+      "timestamp": "2022-02-17T19:21:28.738Z",
+      "ergPerToken": "0.022352252",
+      "tokenPerErg": "45",
+      "ergAmount": "864.965096021",
+      "tokenAmount": "38697",
+      "token": {
+        "name": "Erdoge",
+        "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+        "decimals": 0
+      },
+      "tokenName": "Erdoge"
+    },
+    {
+      "timestamp": "2022-02-17T19:21:28.738Z",
+      "ergPerToken": "0.002857143",
+      "tokenPerErg": "350",
+      "ergAmount": "1.2",
+      "tokenAmount": "420",
+      "token": {
+        "name": "xyzpad",
+        "tokenId": "29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0",
+        "decimals": 0
+      },
+      "tokenName": "xyzpad"
+    }
   ]
 ]
