@@ -33,24 +33,24 @@ interface AppState {
 };
 
 type RatesDictionary = { [key: string]: ITokenRate[] };
-
+(window as any).JSONBI = JSONBI;
 const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string, valueField: string, argumentField: string, tokenName: string) => {
   if (ratesByToken[tokenRateKey].map === undefined) return (<Typography key={tokenName} variant="h3" align="center">{tokenName}</Typography>)
   const priceData = ratesByToken[tokenRateKey].map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: rate.ergPerToken}))
   const ergMarketSizeData = ratesByToken[tokenRateKey]
     .filter((rate: ITokenRate) => rate.ergAmount !== undefined)
-    .map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: JSONBI.parse(rate.ergAmount) as number }))
+    .map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: (parseFloat(rate.ergAmount) + (JSONBI.parse(rate.tokenAmount) * parseFloat(rate.ergPerToken.toString()))) }))
   return <>
     <Card key={tokenName} sx={{ m: 2 }} variant="outlined">
       <Typography variant="h3" align="center">{tokenName}</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
         <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2, width: '100%'}}>
-          <Typography variant="h6" align="center">Price per token in ergs</Typography>
-          { getChart(tokenName, priceData, `1 erg = ~${(1 / (priceData.slice(-1)[0].value)).toFixed(2)} ${tokenName}`) }
+          <Typography variant="h6" align="center">Price per token in Σ</Typography>
+          { getChart(tokenName, priceData, `1 Σ = ~${(1 / (priceData.slice(-1)[0].value)).toFixed(2)} ${tokenName}`) }
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2, width: '100%' }}>
-          <Typography variant="h6" align="center">Market value in ergs</Typography>
-          { getChart(tokenName, ergMarketSizeData, `${(ergMarketSizeData.slice(-1)[0].value.toFixed(2))} ergs`) }
+          <Typography variant="h6" align="center">Market value in Σ</Typography>
+          { getChart(tokenName, ergMarketSizeData, `~${JSONBI.parse(ergMarketSizeData.slice(-1)[0].value.toString()).toFixed(2)} Σ`) }
         </Box>
       </Box>
     </Card>

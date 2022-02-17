@@ -49,12 +49,12 @@ const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitl
       name: axisTitle || data.slice(-1)[0].value,
       position: "right",
       axisLabel: {
-        formatter: "{value} ERG",
+        formatter: "{value} Σ",
       },
       smooth: true
     },
     grid: {
-      containLabel: true, left: 10, right: 10, bottom: -25, top: 50
+      containLabel: true, left: 10, right: 20, bottom: -25, top: 50
     },
     series: {
       data: data.map(({timestamp, value}) => ({
