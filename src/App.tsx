@@ -15,6 +15,8 @@ import historicalTickerData from './ticker.json';
 import { tokenInfosById } from './tokenDictionary';
 import { ChartData, getChart } from './MyChart';
 import JSONBigInt from 'json-bigint';
+import { ThemeProvider } from '@mui/material/styles';
+import {theme} from './theme';
 
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
 
@@ -30,6 +32,7 @@ interface AppState {
 type RatesDictionary = { [key: string]: ITokenRate[] };
 
 const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string, valueField: string, argumentField: string, tokenName: string) => {
+  if (ratesByToken[tokenRateKey].map === undefined) return (<Typography key={tokenName} variant="h3" align="center">{tokenName}</Typography>)
   const priceData = ratesByToken[tokenRateKey].map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: rate.ergPerToken}))
   const ergMarketSizeData = ratesByToken[tokenRateKey]
     .filter((rate: ITokenRate) => rate.ergAmount !== undefined)
@@ -47,10 +50,10 @@ const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string
           <Typography variant="h6" align="center">Market value in ergs</Typography>
         </Grid>
         <Grid item xs={5}>
-          { getChart(tokenName, priceData, `1 ${tokenName} = ~${(priceData.slice(-1)[0].value)} ERG`) }
+          { getChart(tokenName, priceData, `1 erg = ~${(1 / (priceData.slice(-1)[0].value)).toFixed(2)} ${tokenName}`) }
         </Grid>
         <Grid item xs={5}>
-          { getChart(tokenName, ergMarketSizeData, `${(ergMarketSizeData.slice(-1)[0].value)} ERGS Market Value`) }
+          { getChart(tokenName, ergMarketSizeData, `${(ergMarketSizeData.slice(-1)[0].value.toFixed(2))} ergs`) }
         </Grid></Grid>
       </Card>
   </>
@@ -60,20 +63,31 @@ const tokenKeyToChartData = (tokenKey: string, ratesByToken: { [key: string]: IT
   
 }
 
-const startingTickerData = {};
+let startingTickerData: RatesDictionary = {};
+let postSeedTickerData: RatesDictionary = {};
+try {
+  postSeedTickerData = JSONBI.parse(window.localStorage.getItem('tickerRatesDict') || '{}');
+} catch(ex) {
+  window.localStorage.setItem('tickerRatesDict', '{}');
+  postSeedTickerData = {};
+}
 
 const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary) => {
   return rates.reduce((acc: any, cur) => {
     const tokenKey = tokenInfosById[cur.token.tokenId]?.name || cur.token.tokenId
     acc[tokenKey] = acc[tokenKey] || [];
-    acc[tokenKey].push(cur);
+    const previousRate = acc[tokenKey].pop();
+    previousRate && acc[tokenKey].push(previousRate);
+    if(previousRate?.ergPerToken !== cur.ergPerToken || previousRate?.ergAmount !== cur.ergAmount) acc[tokenKey].push(cur);
     return acc;
   }, ratesDict);
 }
 
-historicalTickerData.forEach((tickersAtTime: ITokenRate[]) => {
-  addTokenRatesToDictionary(tickersAtTime, startingTickerData);
-})
+// Add historical data points from seeded data and browser local storage to form initial ticker data
+const sortedHistoricalData = historicalTickerData.flatMap(a => a).concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])).sort((a: ITokenRate, b: ITokenRate) => 
+  moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
+)
+addTokenRatesToDictionary(sortedHistoricalData, startingTickerData);
 
 export const App = (props: AppProps) => {
   const { name } = props;
@@ -84,6 +98,7 @@ export const App = (props: AppProps) => {
     const newRatesByToken = addTokenRatesToDictionary(rates, ratesByToken);
 
     console.log('newRatesByToken', newRatesByToken)
+    window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(newRatesByToken));
     setRatesByToken({ ...newRatesByToken });
   };
 
@@ -100,6 +115,7 @@ export const App = (props: AppProps) => {
   }
   return (
     <>
+    <ThemeProvider theme={theme}>
     <CssBaseline />
     <Paper>
     <Grid container spacing={2} rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} justifyContent="center">
@@ -112,7 +128,9 @@ export const App = (props: AppProps) => {
           return displayChartForData(ratesByToken, tokenRateKey, 'ergPerToken', 'timestamp', tokenRateKey);
         })}
       </Grid>
-    </Grid></Paper></>
+    </Grid></Paper>
+    </ThemeProvider>
+    </>
   );
 }
 

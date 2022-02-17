@@ -9,7 +9,8 @@ import {
 import {
   GridComponent,
   TitleComponent,
-  TooltipComponent
+  TooltipComponent,
+  LegendComponent
 } from 'echarts/components';
 
 import 'echarts/lib/chart/line';
@@ -22,11 +23,12 @@ import {
 
 // Register the required components
 echarts.use(
-  [TitleComponent, TooltipComponent, GridComponent, LineChart, CanvasRenderer]
+  [TitleComponent, TooltipComponent, GridComponent, LineChart, CanvasRenderer, LegendComponent]
 );
 export type ChartData = { value: number; timestamp: string }[];
 const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitle?: string) => {
   return {
+    theme: 'dark',
     tooltip: {
       trigger: "axis",
       axisPointer: { type: "cross" }
