@@ -28,12 +28,12 @@ echarts.use(
 export type ChartData = { value: number; timestamp: string }[];
 const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitle?: string) => {
   return {
-    theme: 'dark',
     tooltip: {
       trigger: "axis",
       axisPointer: { type: "cross" }
     },
-    legend: {},
+    legend: {
+    },
     xAxis: {
       type: "time",
       data: data.map(({ timestamp }) => moment(timestamp).toDate()),
@@ -49,9 +49,12 @@ const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitl
       name: axisTitle || data.slice(-1)[0].value,
       position: "right",
       axisLabel: {
-        formatter: "{value} ERG"
+        formatter: "{value} ERG",
       },
       smooth: true
+    },
+    grid: {
+      containLabel: true, left: 10, right: 10, bottom: -25, top: 50
     },
     series: {
       data: data.map(({timestamp, value}) => ({
@@ -68,6 +71,7 @@ const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitl
 export const getChart = (tokenName: string, data: ChartData, axisTitle?: string) => {
   const chartOptions = getChartOptionsWithoutData(tokenName, data, axisTitle);
   return (<ReactEChartsCore
+    theme="dark"
     echarts={echarts}
     option={chartOptions}
   />);

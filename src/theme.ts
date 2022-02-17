@@ -1,5 +1,11 @@
 import { createTheme } from '@mui/material';
 
+// export const theme = createTheme({
+//     palette: {
+//         mode: 'dark',
+//     },
+// });
+
 export const theme = createTheme({
   breakpoints: {
     values: {
@@ -132,6 +138,7 @@ export const theme = createTheme({
     }
   },
   palette: {
+    mode: 'dark',
     // neutral: {
     //   100: '#F3F4F6',
     //   200: '#E5E7EB',
@@ -143,60 +150,60 @@ export const theme = createTheme({
     //   800: '#1F2937',
     //   900: '#111827'
     // },
-    action: {
-      active: '#6B7280',
-      focus: 'rgba(55, 65, 81, 0.12)',
-      hover: 'rgba(55, 65, 81, 0.04)',
-      selected: 'rgba(55, 65, 81, 0.08)',
-      disabledBackground: 'rgba(55, 65, 81, 0.12)',
-      disabled: 'rgba(55, 65, 81, 0.26)'
-    },
-    background: {
-      default: '#F9FAFC',
-      paper: '#FFFFFF'
-    },
-    divider: '#E6E8F0',
-    primary: {
-      main: '#5048E5',
-      light: '#828DF8',
-      dark: '#3832A0',
-      contrastText: '#FFFFFF'
-    },
-    secondary: {
-      main: '#10B981',
-      light: '#3FC79A',
-      dark: '#0B815A',
-      contrastText: '#FFFFFF'
-    },
-    success: {
-      main: '#14B8A6',
-      light: '#43C6B7',
-      dark: '#0E8074',
-      contrastText: '#FFFFFF'
-    },
-    info: {
-      main: '#2196F3',
-      light: '#64B6F7',
-      dark: '#0B79D0',
-      contrastText: '#FFFFFF'
-    },
-    warning: {
-      main: '#FFB020',
-      light: '#FFBF4C',
-      dark: '#B27B16',
-      contrastText: '#FFFFFF'
-    },
-    error: {
-      main: '#D14343',
-      light: '#DA6868',
-      dark: '#922E2E',
-      contrastText: '#FFFFFF'
-    },
-    text: {
-      primary: '#121828',
-      secondary: '#65748B',
-      disabled: 'rgba(55, 65, 81, 0.48)'
-    }
+    // action: {
+    //   active: '#6B7280',
+    //   focus: 'rgba(55, 65, 81, 0.12)',
+    //   hover: 'rgba(55, 65, 81, 0.04)',
+    //   selected: 'rgba(55, 65, 81, 0.08)',
+    //   disabledBackground: 'rgba(55, 65, 81, 0.12)',
+    //   disabled: 'rgba(55, 65, 81, 0.26)'
+    // },
+    // background: {
+    //   default: '#F9FAFC',
+    //   paper: '#FFFFFF'
+    // },
+    // divider: '#E6E8F0',
+    // primary: {
+    //   main: '#5048E5',
+    //   light: '#828DF8',
+    //   dark: '#3832A0',
+    //   contrastText: '#FFFFFF'
+    // },
+    // secondary: {
+    //   main: '#10B981',
+    //   light: '#3FC79A',
+    //   dark: '#0B815A',
+    //   contrastText: '#FFFFFF'
+    // },
+    // success: {
+    //   main: '#14B8A6',
+    //   light: '#43C6B7',
+    //   dark: '#0E8074',
+    //   contrastText: '#FFFFFF'
+    // },
+    // info: {
+    //   main: '#2196F3',
+    //   light: '#64B6F7',
+    //   dark: '#0B79D0',
+    //   contrastText: '#FFFFFF'
+    // },
+    // warning: {
+    //   main: '#FFB020',
+    //   light: '#FFBF4C',
+    //   dark: '#B27B16',
+    //   contrastText: '#FFFFFF'
+    // },
+    // error: {
+    //   main: '#D14343',
+    //   light: '#DA6868',
+    //   dark: '#922E2E',
+    //   contrastText: '#FFFFFF'
+    // },
+    // text: {
+    //   primary: '#121828',
+    //   secondary: '#65748B',
+    //   disabled: 'rgba(55, 65, 81, 0.48)'
+    // }
   },
   shape: {
     borderRadius: 8
@@ -297,3 +304,111 @@ export const theme = createTheme({
     }
   }
 });
+
+// import { createTheme } from '@mui/material/styles';
+// import { green, grey, red } from '@mui/material/colors';
+
+// const rawTheme = createTheme({
+//   palette: {
+//     primary: {
+//       light: '#69696a',
+//       main: '#28282a',
+//       dark: '#1e1e1f',
+//     },
+//     secondary: {
+//       light: '#fff5f8',
+//       main: '#ff3366',
+//       dark: '#e62958',
+//     },
+//     warning: {
+//       main: '#ffc071',
+//       dark: '#ffb25e',
+//     },
+//     error: {
+//       light: red[50],
+//       main: red[500],
+//       dark: red[700],
+//     },
+//     success: {
+//       light: green[50],
+//       main: green[500],
+//       dark: green[700],
+//     },
+//   },
+//   typography: {
+//     fontFamily: "'Work Sans', sans-serif",
+//     fontSize: 14,
+//     fontWeightLight: 300, // Work Sans
+//     fontWeightRegular: 400, // Work Sans
+//     fontWeightMedium: 700, // Roboto Condensed
+//   },
+// });
+
+// const fontHeader = {
+//   color: rawTheme.palette.text.primary,
+//   fontWeight: rawTheme.typography.fontWeightMedium,
+//   fontFamily: "'Roboto Condensed', sans-serif",
+//   textTransform: 'uppercase',
+// };
+
+// export const theme = {
+//   ...rawTheme,
+//   palette: {
+//     ...rawTheme.palette,
+//     background: {
+//       ...rawTheme.palette.background,
+//       default: rawTheme.palette.common.white,
+//       placeholder: grey[200],
+//     },
+//   },
+//   typography: {
+//     ...rawTheme.typography,
+//     fontHeader,
+//     h1: {
+//       ...rawTheme.typography.h1,
+//       ...fontHeader,
+//       letterSpacing: 0,
+//       fontSize: 60,
+//     },
+//     h2: {
+//       ...rawTheme.typography.h2,
+//       ...fontHeader,
+//       fontSize: 48,
+//     },
+//     h3: {
+//       ...rawTheme.typography.h3,
+//       ...fontHeader,
+//       fontSize: 42,
+//     },
+//     h4: {
+//       ...rawTheme.typography.h4,
+//       ...fontHeader,
+//       fontSize: 36,
+//     },
+//     h5: {
+//       ...rawTheme.typography.h5,
+//       fontSize: 20,
+//       fontWeight: rawTheme.typography.fontWeightLight,
+//     },
+//     h6: {
+//       ...rawTheme.typography.h6,
+//       ...fontHeader,
+//       fontSize: 18,
+//     },
+//     subtitle1: {
+//       ...rawTheme.typography.subtitle1,
+//       fontSize: 18,
+//     },
+//     body1: {
+//       ...rawTheme.typography.body2,
+//       fontWeight: rawTheme.typography.fontWeightRegular,
+//       fontSize: 16,
+//     },
+//     body2: {
+//       ...rawTheme.typography.body1,
+//       fontSize: 14,
+//     },
+//   },
+// };
+
+// export default theme;
