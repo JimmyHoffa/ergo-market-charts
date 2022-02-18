@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { ExplorerTokenMarket, ITokenRate } from "ergo-market-lib";
-import { renderFractions } from "ergo-market-lib/dist/math";
 import { getChartDataForAddress, AddressCharts } from './AddressCharts'
 import moment from 'moment';
 import * as React from "react";
@@ -45,20 +44,21 @@ try {
   postSeedTickerData = {};
 }
 
-const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary) => {
+const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary, maxRatesNumber: number = 5000) => {
   return rates.reduce((acc: any, cur) => {
-    const tokenKey = tokenInfosById[cur.token.tokenId]?.name || cur.token.tokenId
+    if (tokenInfosById[cur.token.tokenId] === undefined) return acc;
+    const tokenKey = tokenInfosById[cur.token.tokenId]?.name; // || cur.token.tokenId
     const ratesForThisToken = acc[tokenKey] = acc[tokenKey] || [];
     const previousRate = ratesForThisToken.pop();
     previousRate && ratesForThisToken.push(previousRate);
     if(previousRate?.ergPerToken !== cur.ergPerToken || previousRate?.ergAmount !== cur.ergAmount || previousRate?.tokenAmount !== cur.tokenAmount) ratesForThisToken.push(cur);
-    if (ratesForThisToken.length > 5000) ratesForThisToken.splice(0, 1);
+    if (ratesForThisToken.length > maxRatesNumber) ratesForThisToken.splice(0, 1);
     return acc;
   }, ratesDict);
 }
 
 // Add historical data points from seeded data and browser local storage to form initial ticker data
-const sortedHistoricalData = historicalTickerData.flatMap(a => a).concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])).sort((a: ITokenRate, b: ITokenRate) => 
+const sortedHistoricalData = (historicalTickerData as any).flatMap((a: any) => a).concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])).sort((a: ITokenRate, b: ITokenRate) => 
   moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
 )
 addTokenRatesToDictionary(sortedHistoricalData, startingTickerData);
@@ -67,12 +67,7 @@ export const App = (props: AppProps) => {
   const { name } = props;
   const [ratesByToken, setRatesByToken] = React.useState<RatesDictionary>(startingTickerData);
   const [chosenTokensToDisplay, setChosenTokensToDisplay] = React.useState<string[]>([]);
-  const [addressToAnalyze, setAddressToAnalyze] = React.useState<string>('');
   const [balancesByToken, setBalancesByToken] = React.useState<{ [key: string]: ChartData; }>({});
-
-  const handleAddressChange = (addressTextFieldChangeEvent: any) => {
-    setAddressToAnalyze(addressTextFieldChangeEvent.target.value);
-  };
 
   const getRates = async () => {
     const rates = await explorerTokenMarket.getTokenRates();
@@ -128,7 +123,7 @@ export const App = (props: AppProps) => {
     </Box>
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
       {/* <TextField label="Address" variant="filled" onChange={handleAddressChange} value={addressToAnalyze} /> */}
-      <TextField label="Address" variant="filled" InputProps={{endAdornment: <Button variant="contained" onClick={runAddressAnalysis as any}>Analyze</Button>}} />
+      <TextField label="Address" fullWidth variant="filled" InputProps={{endAdornment: <Button variant="contained" onClick={runAddressAnalysis as any}>Analyze</Button>}} />
     </Box>
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2 }}>
       <AddressCharts
@@ -137,14 +132,16 @@ export const App = (props: AppProps) => {
         ratesByToken={ratesByToken}
         />
     </Box>
-    <PoolCharts
-      tokenRateKeys={tokenRateKeys}
-      ratesByToken={ratesByToken}
-      />
+    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2 }}>
+      <PoolCharts
+        tokenRateKeys={tokenRateKeys}
+        ratesByToken={ratesByToken}
+        />
+    </Box>
     </Paper>
     </ThemeProvider>
     </>
   );
 }
-
-export default hot(App);
+export default App;
+// export default hot(App);

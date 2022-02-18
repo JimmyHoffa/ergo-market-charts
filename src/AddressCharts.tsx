@@ -8,35 +8,19 @@ import { renderFractions } from "ergo-market-lib/dist/math";
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { styled } from '@mui/material/styles';
-
-import { ITokenRate } from "ergo-market-lib";
 import { getChart } from './MyChart';
 import moment from 'moment';
 
+import { Expandable } from './ExpandMore';
 import { ChartData } from './MyChart'
+
 const explorerHttpClient = new ExplorerRequestManager();
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
-
-const ExpandMore = styled((props: any) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }: any) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 export const getChartDataForAddress = async (addr: string, tokenRates: RatesDictionary): Promise<{ [key: string]: ChartData }> => {
   const result = await explorerHttpClient.requestWithRetries<TransactionList>({
     url: `/api/v1/addresses/${addr}/transactions`,
-    params: { limit: 100, offset: 0 },
+    params: { limit: 500, offset: 0 },
     transformResponse: (data: any) => JSONBI.parse(data),
   });
   if (result === undefined) return {};
@@ -91,7 +75,6 @@ export const getChartDataForAddress = async (addr: string, tokenRates: RatesDict
 type AddressChartsProps = { tokenRateKeys: string[]; balancesByToken: { [key: string]: ChartData }; ratesByToken: RatesDictionary };
 export const AddressCharts = (props: AddressChartsProps) => {
   const { tokenRateKeys, balancesByToken, ratesByToken } = props;
-  const [expanded, setExpanded] = React.useState<boolean>(true);
 
   if (Object.keys(balancesByToken).length < 1) return (<>
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '100%' }}>
@@ -106,9 +89,21 @@ export const AddressCharts = (props: AddressChartsProps) => {
     const tokenRates = ratesByToken[tokenRateKey];
     const tokenBalances = balancesByToken[tokenRateKey];
     if (tokenBalances === undefined) return;
+    const firstTokenBalance = tokenBalances[0];
     let currentRateIndex = 0;
     let currentBalanceIndex = 0;
     let currentBalanceValue = 0.0;
+
+    // Move the rate index forward to where the address actually shows a balance
+    for(; currentRateIndex < tokenRates.length; currentRateIndex++) {
+      const currentRate = tokenRates[currentRateIndex];
+      const firstBalanceTs = moment(firstTokenBalance.timestamp);
+      const currentRateTs = moment(currentRate.timestamp);
+      if (currentRateTs.isAfter(firstBalanceTs)) {
+        currentRateIndex--;
+        break;
+      }
+    }
 
     for(; currentRateIndex < tokenRates.length; currentRateIndex++) {
       const currentRate = tokenRates[currentRateIndex];
@@ -124,50 +119,31 @@ export const AddressCharts = (props: AddressChartsProps) => {
           break;
         }
       }
-      currentBalanceValue = parseInt(renderFractions(tokenBalances[currentBalanceIndex].value, currentRate.token.decimals));
+      currentBalanceValue = parseFloat(renderFractions(tokenBalances[currentBalanceIndex].value, currentRate.token.decimals));
       balancesDictionary[tokenRateKey] = balancesDictionary[tokenRateKey] || [];
       balancesDictionary[tokenRateKey].push({timestamp: currentRate.timestamp, value: currentRate.ergPerToken * currentBalanceValue})
     }
   })
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded)
-  }
-
   return (
   <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '100%' }}>
-    <Card sx={{ m: 2 }} variant="outlined">
-      <Typography variant="h6" align="center">Wallet values of tokens over time in Σ</Typography>
-      <ExpandMore
-        expand={expanded}
-        onClick={handleExpandClick}
-        aria-expanded={expanded}
-        aria-label="show more"
-      >
-        <ExpandMoreIcon />
-      </ExpandMore>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+    <Card variant="outlined">
+      <Typography variant="h5" align="center">Address values of tokens over time in Σ</Typography>
+      <Expandable>
         <Card sx={{ m: 2 }} variant="elevation">
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', flexWrap: 'wrap'}}>
           {tokenRateKeys.map((tokenRateKey) => {
             const decimalsForThisToken = tokenInfosById[tokenRateKey];
-
             if (balancesDictionary[tokenRateKey] === undefined) return (<></>)
-            // try {
-            // } catch( ex) {
-            //   console.log('THITHISITIHISHTIH', currentRate, currentRateIndex, nextTokenBalance, currentBalanceIndex)
-            //   throw ex;
-            // }
-
             return (
-              <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '30%' }}>
+              <Box key={tokenRateKey} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '30%' }}>
                 <Typography variant="h6" align="center">Wallet value of {tokenRateKey} in Σ</Typography>
-                { getChart(tokenRateKey, balancesDictionary[tokenRateKey], `~${renderFractions(balancesDictionary[tokenRateKey].slice(-1)[0].value, decimalsForThisToken)} Σ`) }
+                { getChart('Σ', balancesDictionary[tokenRateKey], `~${parseFloat(renderFractions(balancesDictionary[tokenRateKey].slice(-1)[0].value, decimalsForThisToken)).toFixed(2)} Σ`) }
               </Box>)
           })}
           </Box>
         </Card>
-      </Collapse>
+      </Expandable>
     </Card>
   </Box>);
 }

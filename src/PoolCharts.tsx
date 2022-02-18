@@ -9,12 +9,8 @@ import JSONBigInt from 'json-bigint';
 import { getChart } from './MyChart';
 import moment from 'moment';
 import { RatesDictionary } from './types';
-
+import { Expandable } from './ExpandMore';
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
-
-const tokenKeyToChartData = (tokenKey: string, ratesByToken: { [key: string]: ITokenRate[] }) => {
-  
-}
 
 const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string, valueField: string, argumentField: string, tokenName: string) => {
     if (ratesByToken[tokenRateKey].map === undefined) return (<Typography key={tokenName} variant="h3" align="center">{tokenName}</Typography>)
@@ -25,21 +21,21 @@ const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string
       .filter((rate: ITokenRate) => rate.ergAmount !== undefined)
       .map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: (parseFloat(rate.ergAmount) + (JSONBI.parse(rate.tokenAmount) * parseFloat(rate.ergPerToken.toString()))) }))
     return <>
-      <Card key={tokenName} sx={{ m: 2 }} variant="outlined">
+      <Card key={tokenName} sx={{ m: 2 }} variant="elevation">
         <Typography variant="h3" align="center">{tokenName}</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
             <Typography variant="h6" align="center">Price per token in Σ</Typography>
-            { getChart(tokenName, priceData, `1 Σ = ~${(1 / (priceData.slice(-1)[0].value)).toFixed(2)} ${tokenName}`) }
+            { getChart('Σ', priceData, `1 Σ = ~${(1 / (priceData.slice(-1)[0].value)).toFixed(2)} ${tokenName}`) }
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', mx: 0, width: '20%'}}>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
               <Typography variant="h6" align="center">Tokens in pool</Typography>
-              { getChart(tokenName, tokenAmountData, `${tokenAmountData.slice(-1)[0].value.toString()} ${tokenName}s`) }
+              { getChart(tokenName, tokenAmountData, `${tokenAmountData.slice(-1)[0].value.toFixed(2).toString()} ${tokenName}s`) }
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
               <Typography variant="h6" align="center">Σ in pool</Typography>
-              { getChart('Σ', ergAmountData, `${ergAmountData.slice(-1)[0].value.toString()} Σ`) }
+              { getChart('Σ', ergAmountData, `${ergAmountData.slice(-1)[0].value.toFixed(2).toString()} Σ`) }
             </Box>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
@@ -53,11 +49,16 @@ const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string
 
 type PoolChartsProps = { tokenRateKeys: string[]; ratesByToken: RatesDictionary };
 export const PoolCharts = (props: PoolChartsProps) => {
+  const [expanded, setExpanded] = React.useState<boolean>(true);
   const { tokenRateKeys, ratesByToken } = props;
   return (
+    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '100%' }}>
+    <Card variant="outlined">
+    <Typography variant="h5" align="center">Token market prices and pool values</Typography>
+<Expandable>
   <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
     {tokenRateKeys.map((tokenRateKey) => {
       return displayChartForData(ratesByToken, tokenRateKey, 'ergPerToken', 'timestamp', tokenRateKey);
     })}
-  </Box>);
+  </Box></Expandable></Card></Box>);
 }
