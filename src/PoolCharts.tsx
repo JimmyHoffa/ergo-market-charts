@@ -21,7 +21,7 @@ const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string
       .filter((rate: ITokenRate) => rate.ergAmount !== undefined)
       .map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: (parseFloat(rate.ergAmount) + (JSONBI.parse(rate.tokenAmount) * parseFloat(rate.ergPerToken.toString()))) }))
     return <>
-      <Card key={tokenName} sx={{ m: 2 }} variant="elevation">
+      <Card key={tokenRateKey} sx={{ m: 2 }} variant="elevation">
         <Typography variant="h3" align="center">{tokenName}</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>

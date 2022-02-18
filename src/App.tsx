@@ -20,6 +20,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './theme';
 import { RatesDictionary, TransactionList } from './types';
 import { ChartData } from './MyChart';
+import { Typography } from '@mui/material';
 
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
 
@@ -52,7 +53,7 @@ const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictiona
     const previousRate = ratesForThisToken.pop();
     previousRate && ratesForThisToken.push(previousRate);
     if(previousRate?.ergPerToken !== cur.ergPerToken || previousRate?.ergAmount !== cur.ergAmount || previousRate?.tokenAmount !== cur.tokenAmount) ratesForThisToken.push(cur);
-    if (ratesForThisToken.length > maxRatesNumber) ratesForThisToken.splice(0, 1);
+    while (ratesForThisToken.length > maxRatesNumber) ratesForThisToken.splice(0, 1);
     return acc;
   }, ratesDict);
 }
@@ -64,16 +65,16 @@ const sortedHistoricalData = (historicalTickerData as any).flatMap((a: any) => a
 addTokenRatesToDictionary(sortedHistoricalData, startingTickerData);
 
 export const App = (props: AppProps) => {
-  const { name } = props;
   const [ratesByToken, setRatesByToken] = React.useState<RatesDictionary>(startingTickerData);
   const [chosenTokensToDisplay, setChosenTokensToDisplay] = React.useState<string[]>([]);
   const [balancesByToken, setBalancesByToken] = React.useState<{ [key: string]: ChartData; }>({});
+  const [maxTokenRatesPerToken, setMaxTokenRatesPerToken] = React.useState<number>(5000);
 
   const getRates = async () => {
     const rates = await explorerTokenMarket.getTokenRates();
-    const newRatesByToken = addTokenRatesToDictionary(rates, ratesByToken);
+    const newRatesByToken = addTokenRatesToDictionary(rates, ratesByToken, maxTokenRatesPerToken);
+    setRatesByToken(newRatesByToken);
     window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(newRatesByToken));
-    setRatesByToken({ ...newRatesByToken });
   };
 
   const [marketRequestsInterval, setMarketRequestsInterval] = React.useState(-1 as any);
@@ -102,6 +103,17 @@ export const App = (props: AppProps) => {
     const chartDataForAddress = await getChartDataForAddress(addressToAnalyze, ratesByToken);
     setBalancesByToken(chartDataForAddress)
   }
+
+  const updateMaxDataPoints = (clickEvent: any) => {
+    console.log('VVVVVVVV', clickEvent.target.parentElement.children[0].value);
+    const maxDataPoints = parseInt(clickEvent.target.parentElement.children[0].value || maxTokenRatesPerToken)
+    console.log('MAXXXXXXXXX', maxDataPoints);
+    setMaxTokenRatesPerToken(maxDataPoints);
+    Object.values(ratesByToken).forEach((tokenRates: ITokenRate[]) => {
+      while (tokenRates.length > maxDataPoints) tokenRates.splice(0, 1);
+    })
+    setRatesByToken(ratesByToken);
+  }
   return (
     <>
     <ThemeProvider theme={theme}>
@@ -113,6 +125,20 @@ export const App = (props: AppProps) => {
         <ToggleButton key="stop" value="stop">Stop</ToggleButton>
         <ToggleButton key="play" value="play">play</ToggleButton>
       </ToggleButtonGroup>
+    </Box>
+    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2 }}>
+      <Typography variant="h6">Improve UI performance by reducing max data points per token:</Typography>
+      <TextField
+          id="outlined-number"
+          label="Data points per token"
+          type="number"
+          variant="filled"
+          defaultValue={5000}
+          InputLabelProps={{shrink: true}}
+          InputProps={{
+            endAdornment: (<Button variant="contained" onClick={updateMaxDataPoints as any}>Update</Button>)
+          }}
+        />
     </Box>
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
       <ToggleButtonGroup color="primary" value={ chosenTokensToDisplay } onChange={handleTokenChange}>
@@ -143,5 +169,5 @@ export const App = (props: AppProps) => {
     </>
   );
 }
-export default App;
-// export default hot(App);
+// export default App;
+export default hot(App);
