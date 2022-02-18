@@ -39,12 +39,12 @@ const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
               <Typography variant="h6" align="center">Σ in pool</Typography>
-              { getChart(tokenName, ergAmountData, `${ergAmountData.slice(-1)[0].value.toString()} Σ`) }
+              { getChart('Σ', ergAmountData, `${ergAmountData.slice(-1)[0].value.toString()} Σ`) }
             </Box>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
             <Typography variant="h6" align="center">Market value in Σ</Typography>
-            { getChart(tokenName, ergMarketSizeData, `~${JSONBI.parse(ergMarketSizeData.slice(-1)[0].value.toString()).toFixed(2)} Σ`) }
+            { getChart('Σ', ergMarketSizeData, `~${JSONBI.parse(ergMarketSizeData.slice(-1)[0].value.toString()).toFixed(2)} Σ`) }
           </Box>
         </Box>
       </Card>
