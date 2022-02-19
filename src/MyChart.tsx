@@ -75,7 +75,7 @@ const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitl
       }
     ],
     toolbox: {
-      left: 'center',
+      left: 30,
       itemSize: 15,
       top: 15,
       feature: {
