@@ -18,7 +18,7 @@ export const ExpandMore = styled((props: any) => {
 }));
 
 export const Expandable = (props: any) => {
-    const [expanded, setExpanded] = React.useState<boolean>(false);
+    const [expanded, setExpanded] = React.useState<boolean>(props.initiallyExpanded || false);
     const handleExpandClick = () => {
         setExpanded(!expanded)
     }

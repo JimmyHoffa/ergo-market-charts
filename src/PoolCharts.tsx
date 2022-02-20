@@ -23,26 +23,28 @@ const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string
     return <>
       <Card key={tokenRateKey} sx={{ m: 2 }} variant="elevation">
         <Typography variant="h3" align="center">{tokenName}</Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
-          <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
-            <Typography variant="h6" align="center">Price per token in Σ</Typography>
-            { getChart('Σ', priceData, `1 Σ = ~${(1 / (priceData.slice(-1)[0].value)).toFixed(2)} ${tokenName}`) }
-          </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', mx: 0, width: '20%'}}>
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
-              <Typography variant="h6" align="center">Tokens in pool</Typography>
-              { getChart(tokenName, tokenAmountData, `${tokenAmountData.slice(-1)[0].value.toFixed(2).toString()} ${tokenName}s`) }
+        <Expandable initiallyExpanded={false}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
+              <Typography variant="h6" align="center">Price per token in Σ</Typography>
+              { getChart('Σ', priceData, `1 Σ = ~${(1 / (priceData.slice(-1)[0]?.value))?.toFixed(2)} ${tokenName}`) }
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
-              <Typography variant="h6" align="center">Σ in pool</Typography>
-              { getChart('Σ', ergAmountData, `${ergAmountData.slice(-1)[0].value.toFixed(2).toString()} Σ`) }
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', mx: 0, width: '20%'}}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
+                <Typography variant="h6" align="center">Tokens in pool</Typography>
+                { getChart(tokenName, tokenAmountData, `${tokenAmountData.slice(-1)[0]?.value?.toFixed(2)?.toString()} ${tokenName}s`) }
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
+                <Typography variant="h6" align="center">Σ in pool</Typography>
+                { getChart('Σ', ergAmountData, `${ergAmountData.slice(-1)[0]?.value?.toFixed(2)?.toString()} Σ`) }
+              </Box>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
+              <Typography variant="h6" align="center">Market value in Σ</Typography>
+              { getChart('Σ', ergMarketSizeData, `~${ergMarketSizeData.slice(-1)[0]?.value?.toFixed(2)} Σ`) }
             </Box>
           </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
-            <Typography variant="h6" align="center">Market value in Σ</Typography>
-            { getChart('Σ', ergMarketSizeData, `~${JSONBI.parse(ergMarketSizeData.slice(-1)[0].value.toString()).toFixed(2)} Σ`) }
-          </Box>
-        </Box>
+        </Expandable>
       </Card>
     </>
   }
@@ -55,7 +57,7 @@ export const PoolCharts = (props: PoolChartsProps) => {
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '100%' }}>
     <Card variant="outlined">
     <Typography variant="h5" align="center">Token market prices and pool values</Typography>
-<Expandable>
+<Expandable initiallyExpanded={true}>
   <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
     {tokenRateKeys.map((tokenRateKey) => {
       return displayChartForData(ratesByToken, tokenRateKey, 'ergPerToken', 'timestamp', tokenRateKey);

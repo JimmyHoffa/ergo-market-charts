@@ -45,10 +45,10 @@ try {
   postSeedTickerData = {};
 }
 
-const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary, maxRatesNumber: number = 5000) => {
+const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary, maxRatesNumber: number = 5000): RatesDictionary => {
   return rates.reduce((acc: any, cur) => {
     if (tokenInfosById[cur.token.tokenId] === undefined) return acc;
-    const tokenKey = tokenInfosById[cur.token.tokenId]?.name; // || cur.token.tokenId
+    const tokenKey = tokenInfosById[cur.token.tokenId]?.name;
     const ratesForThisToken = acc[tokenKey] = acc[tokenKey] || [];
     const previousRate = ratesForThisToken.pop();
     previousRate && ratesForThisToken.push(previousRate);
@@ -62,6 +62,7 @@ const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictiona
 const sortedHistoricalData = (historicalTickerData as any).flatMap((a: any) => a).concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])).sort((a: ITokenRate, b: ITokenRate) => 
   moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
 )
+
 addTokenRatesToDictionary(sortedHistoricalData, startingTickerData);
 
 export const App = (props: AppProps) => {
@@ -73,8 +74,12 @@ export const App = (props: AppProps) => {
   const getRates = async () => {
     const rates = await explorerTokenMarket.getTokenRates();
     const newRatesByToken = addTokenRatesToDictionary(rates, ratesByToken, maxTokenRatesPerToken);
-    setRatesByToken(newRatesByToken);
-    window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(newRatesByToken));
+    setRatesByToken({ ...newRatesByToken });
+    const localStorageRates = Object.keys(newRatesByToken).reduce((acc: any, cur: string) => {
+      acc[cur] = newRatesByToken[cur].slice(-700);
+      return acc;
+    }, {});
+    window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(localStorageRates));
   };
 
   const [marketRequestsInterval, setMarketRequestsInterval] = React.useState(-1 as any);
@@ -105,15 +110,15 @@ export const App = (props: AppProps) => {
   }
 
   const updateMaxDataPoints = (clickEvent: any) => {
-    console.log('VVVVVVVV', clickEvent.target.parentElement.children[0].value);
     const maxDataPoints = parseInt(clickEvent.target.parentElement.children[0].value || maxTokenRatesPerToken)
-    console.log('MAXXXXXXXXX', maxDataPoints);
     setMaxTokenRatesPerToken(maxDataPoints);
     Object.values(ratesByToken).forEach((tokenRates: ITokenRate[]) => {
       while (tokenRates.length > maxDataPoints) tokenRates.splice(0, 1);
     })
     setRatesByToken(ratesByToken);
   }
+
+  (historicalTickerData as Array<any>).splice(0); // Empty this array to GC its pointer stack instead of wasting memory;
   return (
     <>
     <ThemeProvider theme={theme}>
