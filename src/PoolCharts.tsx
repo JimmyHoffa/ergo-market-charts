@@ -23,7 +23,7 @@ const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string
     return <>
       <Card key={tokenRateKey} sx={{ m: 2 }} variant="elevation">
         <Typography variant="h3" align="center">{tokenName}</Typography>
-        <Expandable initiallyExpanded={false}>
+        <Expandable initiallyExpanded={true}>
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
               <Typography variant="h6" align="center">Price per token in Σ</Typography>

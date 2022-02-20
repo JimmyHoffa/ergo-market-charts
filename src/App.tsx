@@ -83,7 +83,7 @@ export const App = (props: AppProps) => {
   };
 
   const [marketRequestsInterval, setMarketRequestsInterval] = React.useState(-1 as any);
-  if (marketRequestsInterval === -1) setMarketRequestsInterval(setInterval(getRates, 10000));
+  if (marketRequestsInterval === -1) setMarketRequestsInterval(setInterval(getRates, 120000));
   const stopRetrievingData = () => {
     clearInterval(marketRequestsInterval);
     setMarketRequestsInterval(undefined);
@@ -118,7 +118,7 @@ export const App = (props: AppProps) => {
     setRatesByToken(ratesByToken);
   }
 
-  (historicalTickerData as Array<any>).splice(0); // Empty this array to GC its pointer stack instead of wasting memory;
+  (historicalTickerData as Array<any>).splice(0); // Empty this array to GC its pointer tree instead of wasting memory;
   return (
     <>
     <ThemeProvider theme={theme}>
