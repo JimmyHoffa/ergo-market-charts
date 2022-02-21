@@ -21,6 +21,7 @@ import { theme } from './theme';
 import { RatesDictionary, TransactionList } from './types';
 import { ChartData } from './MyChart';
 import { Typography } from '@mui/material';
+import { CopyToClipboard } from './CopyToClipboard'
 
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
 
@@ -134,7 +135,9 @@ export const App = (props: AppProps) => {
         </ToggleButtonGroup>
       </Box>
       <Box sx={{ display: 'flex', alignItems: "flex-end", alignSelf: "flex-end", flexDirection: 'column' }}>
-        <Typography variant="caption">Tips welcome at 9fKu1S6PF3ttzqmLq5BHQjqLYGA5TWGifVC3DcVeDtgTvW6b1nG</Typography>
+        <CopyToClipboard whatToCopy="9fKu1S6PF3ttzqmLq5BHQjqLYGA5TWGifVC3DcVeDtgTvW6b1nG">
+          <Typography variant="caption" sx={{ verticalAlign: 'top'}}>Tips welcome at 9fKu1S6PF3ttzqmLq5BHQjqLYGA5TWGifVC3DcVeDtgTvW6b1nG</Typography>
+        </CopyToClipboard>
         <Typography component={(compProps) => <img src="tip-qr.png" height="100" width="100" {...compProps} ></img>}></Typography>
       </Box>
     </Box>
