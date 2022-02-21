@@ -125,11 +125,18 @@ export const App = (props: AppProps) => {
     <CssBaseline />
     
     <Paper>
-    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
-      <ToggleButtonGroup color="primary" value={ marketRequestsInterval === undefined ? 'stop' : 'play'} exclusive onChange={onStopOrplayChange}>
-        <ToggleButton key="stop" value="stop">Stop</ToggleButton>
-        <ToggleButton key="play" value="play">play</ToggleButton>
-      </ToggleButtonGroup>
+    <Box sx={{ display: 'flex', flexDirection: 'row', m: 2, justifyContent: "space-between" }}>
+      <Box sx={{ display: 'flex', alignItems: "flex-start", flexDirection: 'column' }}>
+        <Typography variant="h6">Live updating new chart data every 2 minutes</Typography>
+        <ToggleButtonGroup color="primary" value={ marketRequestsInterval === undefined ? 'stop' : 'play'} exclusive onChange={onStopOrplayChange}>
+          <ToggleButton key="stop" value="stop">Stop</ToggleButton>
+          <ToggleButton key="play" value="play">play</ToggleButton>
+        </ToggleButtonGroup>
+      </Box>
+      <Box sx={{ display: 'flex', alignItems: "flex-end", alignSelf: "flex-end", flexDirection: 'column' }}>
+        <Typography variant="caption">Tips welcome at 9fKu1S6PF3ttzqmLq5BHQjqLYGA5TWGifVC3DcVeDtgTvW6b1nG</Typography>
+        <Typography component={(compProps) => <img src="tip-qr.png" height="100" width="100" {...compProps} ></img>}></Typography>
+      </Box>
     </Box>
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2 }}>
       <Typography variant="h6">Improve UI performance by reducing max data points per token:</Typography>
