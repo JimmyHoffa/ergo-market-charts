@@ -22,6 +22,7 @@ import { RatesDictionary, TransactionList } from './types';
 import { ChartData } from './MyChart';
 import { Typography } from '@mui/material';
 import { CopyToClipboard } from './CopyToClipboard'
+import { Changelog } from './Changelog';
 
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
 
@@ -101,8 +102,8 @@ export const App = (props: AppProps) => {
   const handleTokenChange = (a: any, chosenTokens: string[]) => {
     setChosenTokensToDisplay(chosenTokens)
   }
-  const tokenRateKeysToChooseFrom = Object.keys(ratesByToken);
-  const tokenRateKeys = chosenTokensToDisplay.length < 1 ? Object.keys(ratesByToken) : chosenTokensToDisplay;
+  const tokenRateKeysToChooseFrom = Object.keys(ratesByToken).filter(t => t !== 'xyzpad');
+  const tokenRateKeys = chosenTokensToDisplay.length < 1 ? Object.keys(ratesByToken).filter(t => t !== 'xyzpad') : chosenTokensToDisplay;
 
   const runAddressAnalysis = async (clickEvent: any) => {
     const addressToAnalyze = clickEvent.target.parentElement.children[0].value
@@ -133,6 +134,7 @@ export const App = (props: AppProps) => {
           <ToggleButton key="stop" value="stop">Stop</ToggleButton>
           <ToggleButton key="play" value="play">play</ToggleButton>
         </ToggleButtonGroup>
+        <Changelog />
       </Box>
       <Box sx={{ display: 'flex', alignItems: "flex-end", alignSelf: "flex-end", flexDirection: 'column' }}>
         <CopyToClipboard whatToCopy="9fKu1S6PF3ttzqmLq5BHQjqLYGA5TWGifVC3DcVeDtgTvW6b1nG">
@@ -141,7 +143,7 @@ export const App = (props: AppProps) => {
         <Typography component={(compProps) => <img src="tip-qr.png" height="100" width="100" {...compProps} ></img>}></Typography>
       </Box>
     </Box>
-    <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2 }}>
+    {/* <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2 }}>
       <Typography variant="h6">Improve UI performance by reducing max data points per token:</Typography>
       <TextField
           id="outlined-number"
@@ -154,7 +156,7 @@ export const App = (props: AppProps) => {
             endAdornment: (<Button variant="contained" onClick={updateMaxDataPoints as any}>Update</Button>)
           }}
         />
-    </Box>
+    </Box> */}
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
       <ToggleButtonGroup color="primary" value={ chosenTokensToDisplay } onChange={handleTokenChange}>
         {tokenRateKeysToChooseFrom.map((tokenRateKey) => {
