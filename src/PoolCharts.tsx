@@ -27,21 +27,21 @@ const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
               <Typography variant="h6" align="center">Price per token in Σ</Typography>
-              { getChart('Σ', priceData, `1 Σ = ~${(1 / (priceData.slice(-1)[0]?.value))?.toFixed(2)} ${tokenName}`) }
+              { getChart('Σ', priceData, `1 Σ = ~${(1 / (priceData.slice(-1)[0]?.value))?.toLocaleString('en-US', { maximumFractionDigits: 4})} ${tokenName}`) }
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', mx: 0, width: '20%'}}>
               <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
                 <Typography variant="h6" align="center">Tokens in pool</Typography>
-                { getChart(tokenName, tokenAmountData, `${tokenAmountData.slice(-1)[0]?.value?.toFixed(2)?.toString()} ${tokenName}s`) }
+                { getChart(tokenName, tokenAmountData, `${tokenAmountData.slice(-1)[0]?.value?.toLocaleString('en-US', { maximumFractionDigits: 4})?.toString()} ${tokenName}s`) }
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', my: 0.5, height: '200px'}}>
                 <Typography variant="h6" align="center">Σ in pool</Typography>
-                { getChart('Σ', ergAmountData, `${ergAmountData.slice(-1)[0]?.value?.toFixed(2)?.toString()} Σ`) }
+                { getChart('Σ', ergAmountData, `${ergAmountData.slice(-1)[0]?.value?.toLocaleString('en-US', { maximumFractionDigits: 4})?.toString()} Σ`) }
               </Box>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '40%' }}>
               <Typography variant="h6" align="center">Market value in Σ</Typography>
-              { getChart('Σ', ergMarketSizeData, `~${ergMarketSizeData.slice(-1)[0]?.value?.toFixed(2)} Σ`) }
+              { getChart('Σ', ergMarketSizeData, `~${ergMarketSizeData.slice(-1)[0]?.value?.toLocaleString('en-US', { maximumFractionDigits: 4})} Σ`) }
             </Box>
           </Box>
         </Expandable>

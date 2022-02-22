@@ -28,7 +28,15 @@ export const Changelog = (props: any) => {
           maxHeight: 300,
           '& ul': { padding: 0 },
           '& li': { padding: 0 },
-        }}>          
+        }}>
+          <ListItem>
+            <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
+            <ListItemText primary="Formatted numbers with commas and reduced decimals" />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
+            <ListItemText primary="Updated seed data to current full set" />
+          </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
             <ListItemText primary="Removed xyzpad token as it was noise" />

@@ -73,7 +73,7 @@ export const AddressCharts = (props: AddressChartsProps) => {
             return (
               <Box key={tokenRateKey} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '30%' }}>
                 <Typography variant="h6" align="center">Wallet value of {tokenRateKey} in Σ</Typography>
-                { getChart('Σ', balancesByToken[tokenRateKey], `~${balancesByToken[tokenRateKey].slice(-1)[0].value} Σ`) }
+                { getChart('Σ', balancesByToken[tokenRateKey], `~${balancesByToken[tokenRateKey].slice(-1)[0].value.toLocaleString('en-US', { maximumFractionDigits: 4})} Σ`) }
               </Box>)
           })}
           </Box>
