@@ -107,7 +107,7 @@ export const App = (props: AppProps) => {
   const runAddressAnalysis = async (clickEvent: any) => {
     const addressToAnalyze = clickEvent.target.parentElement.children[0].value
     const chartDataForAddress = await getChartDataForAddress(addressToAnalyze, ratesByToken);
-    setBalancesByToken(chartDataForAddress)
+    setBalancesByToken({ ...chartDataForAddress })
   }
 
   const updateMaxDataPoints = (clickEvent: any) => {
