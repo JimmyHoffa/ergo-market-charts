@@ -43,7 +43,7 @@ export const Changelog = (props: any) => {
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><AutoAwesomeIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Added changelog" secondary="Feb 22, 2022" />
+            <ListItemText primary="Added this changelog" secondary="Feb 22, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><BugReportIcon fontSize="small" /></ListItemIcon>
@@ -59,11 +59,19 @@ export const Changelog = (props: any) => {
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><AutoAwesomeIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Added zoom controls" />
+            <ListItemText primary="Added zoom controls" secondary="Feb 18, 2022" />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon sx={{ minWidth: '30px' }}><AutoAwesomeIcon fontSize="small" /></ListItemIcon>
+            <ListItemText primary="Added all historical price data from explorer as seed" secondary="Feb 18, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Added all historical price data from explorer as seed" />
+            <ListItemText primary="Added selector to the top to choose tokens to see" secondary="Feb 17, 2022" />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon sx={{ minWidth: '30px' }}><AutoAwesomeIcon fontSize="small" /></ListItemIcon>
+            <ListItemText primary="Storing data in browser local storage" secondary="Feb 17, 2022" />
           </ListItem>
         </List>
       </Expandable></Box>
