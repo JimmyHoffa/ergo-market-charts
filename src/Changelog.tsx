@@ -31,31 +31,31 @@ export const Changelog = (props: any) => {
         }}>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Formatted numbers with commas and reduced decimals" />
+            <ListItemText primary="Formatted numbers with commas and reduced decimals" secondary="Feb 22, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Updated seed data to current full set" />
+            <ListItemText primary="Updated seed data to current full set" secondary="Feb 22, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Removed xyzpad token as it was noise" />
+            <ListItemText primary="Removed xyzpad token as it was noise" secondary="Feb 22, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><AutoAwesomeIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Added changelog" />
+            <ListItemText primary="Added changelog" secondary="Feb 22, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><BugReportIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Fixed the address analysis" />
+            <ListItemText primary="Fixed the address analysis" secondary="Feb 22, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><AutoAwesomeIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Added tip address" />
+            <ListItemText primary="Added tip address" secondary="Feb 21, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
-            <ListItemText primary="Reduced data updates to 2 minute interval, fixed local data storage bug" />
+            <ListItemText primary="Reduced data updates to 2 minute interval, fixed local data storage bug" secondary="Feb 20, 2022" />
           </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><AutoAwesomeIcon fontSize="small" /></ListItemIcon>
