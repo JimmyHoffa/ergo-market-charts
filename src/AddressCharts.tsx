@@ -41,7 +41,6 @@ export const getChartDataForAddress = async (addr: string, tokenRates: RatesDict
       balancesData[tokenKey].push({value: ergValue, timestamp: moment(currentRate.timestamp).toISOString()});
     }
   })
-  console.log('BALALLAL', balancesData);
   return balancesData;
 };
 

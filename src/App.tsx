@@ -12,7 +12,7 @@ import moment from 'moment';
 import * as React from "react";
 import { hot } from "react-hot-loader/root";
 
-import historicalTickerData from './ticker.json';
+import axios from 'axios';
 import { tokenInfosById } from './tokenDictionary';
 import { PoolCharts } from './PoolCharts';
 import JSONBigInt from 'json-bigint';
@@ -23,12 +23,9 @@ import { ChartData } from './MyChart';
 import { Typography } from '@mui/material';
 import { CopyToClipboard } from './CopyToClipboard'
 import { Changelog } from './Changelog';
+import { LoadingBlock } from './LoadingBlock'
 
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
-
-interface AppProps {
-  name: string;
-}
 
 const explorerTokenMarket = new ExplorerTokenMarket({ throwOnError: false });
 interface AppState {
@@ -37,14 +34,15 @@ interface AppState {
 
 (window as any).JSONBI = JSONBI;
 
-
 let startingTickerData: RatesDictionary = {};
 let postSeedTickerData: RatesDictionary = {};
-try {
-  postSeedTickerData = JSONBI.parse(window.localStorage.getItem('tickerRatesDict') || '{}');
-} catch(ex) {
-  window.localStorage.setItem('tickerRatesDict', '{}');
-  postSeedTickerData = {};
+
+const updateLocalStorageFromTickerRatesDict = (newRatesByToken: RatesDictionary) => {
+  const localStorageRates = Object.keys(newRatesByToken).reduce((acc: any, cur: string) => {
+    acc[cur] = newRatesByToken[cur].slice(-700);
+    return acc;
+  }, {});
+  window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(localStorageRates));
 }
 
 const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary, maxRatesNumber: number = 5000): RatesDictionary => {
@@ -60,40 +58,70 @@ const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictiona
   }, ratesDict);
 }
 
-// Add historical data points from seeded data and browser local storage to form initial ticker data
-const sortedHistoricalData = (historicalTickerData as any).flatMap((a: any) => a).concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])).sort((a: ITokenRate, b: ITokenRate) => 
-  moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
-)
+const initialLoad = async () => {
+  // Add historical data points from seeded data and browser local storage to form initial ticker data
+  const historicalTickerDataResponse = await axios.get<ITokenRate[][]>('ticker.json');
+  try {
+    postSeedTickerData = JSONBI.parse(window.localStorage.getItem('tickerRatesDict') || '{}');
+  } catch(ex) {
+    window.localStorage.setItem('tickerRatesDict', '{}');
+    postSeedTickerData = {};
+  }
 
-addTokenRatesToDictionary(sortedHistoricalData, startingTickerData);
+  const historicalTickerData = historicalTickerDataResponse.data;
+  const sortedHistoricalData = (historicalTickerData as any).flatMap((a: any) => a).concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])).sort((a: ITokenRate, b: ITokenRate) => 
+    moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
+  )
+  
+  addTokenRatesToDictionary(sortedHistoricalData, startingTickerData);
+  historicalTickerData.splice(0); // Empty this array to GC its pointer tree instead of wasting memory;
+}
 
-export const App = (props: AppProps) => {
+export const App = (props: any) => {
   const [ratesByToken, setRatesByToken] = React.useState<RatesDictionary>(startingTickerData);
   const [chosenTokensToDisplay, setChosenTokensToDisplay] = React.useState<string[]>([]);
   const [balancesByToken, setBalancesByToken] = React.useState<{ [key: string]: ChartData; }>({});
   const [maxTokenRatesPerToken, setMaxTokenRatesPerToken] = React.useState<number>(5000);
+  const [loadingCounter, setLoadingCounter] = React.useState<number>(1);
+  const [initialLoadComplete, setInitialLoadComplete] = React.useState(false);
+  const [marketRequestsInterval, setMarketRequestsInterval] = React.useState(-1 as any);
+
+  if (!initialLoadComplete) {
+    initialLoad().then(() => {
+      setInitialLoadComplete(true);
+      setLoadingCounter(Math.max(0,loadingCounter-1));
+      getRates();
+    }, () => {
+      setInitialLoadComplete(true);
+      setLoadingCounter(Math.max(0,loadingCounter-1));
+    });
+  }
 
   const getRates = async () => {
+    if (!initialLoadComplete) return;
+    setLoadingCounter(loadingCounter+1);
     const rates = await explorerTokenMarket.getTokenRates();
     const newRatesByToken = addTokenRatesToDictionary(rates, ratesByToken, maxTokenRatesPerToken);
     setRatesByToken({ ...newRatesByToken });
-    const localStorageRates = Object.keys(newRatesByToken).reduce((acc: any, cur: string) => {
-      acc[cur] = newRatesByToken[cur].slice(-700);
-      return acc;
-    }, {});
-    window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(localStorageRates));
+    updateLocalStorageFromTickerRatesDict(newRatesByToken);
+    setLoadingCounter(Math.max(0,loadingCounter-1));
   };
 
-  const [marketRequestsInterval, setMarketRequestsInterval] = React.useState(-1 as any);
-  if (marketRequestsInterval === -1) setMarketRequestsInterval(setInterval(getRates, 120000));
+  if (marketRequestsInterval === -1 && initialLoadComplete) {
+    getRates();
+    setMarketRequestsInterval(setInterval(getRates, 120000));
+  }
+
   const stopRetrievingData = () => {
     clearInterval(marketRequestsInterval);
     setMarketRequestsInterval(undefined);
   }
+
   const resumeRetrievingData = () => {
     clearInterval(marketRequestsInterval);
     setMarketRequestsInterval(-1);
   }
+
   const onStopOrplayChange = (event: any, newValue: any) => {
     if (newValue === 'stop') stopRetrievingData();
     else resumeRetrievingData();
@@ -102,13 +130,16 @@ export const App = (props: AppProps) => {
   const handleTokenChange = (a: any, chosenTokens: string[]) => {
     setChosenTokensToDisplay(chosenTokens)
   }
+
   const tokenRateKeysToChooseFrom = Object.keys(ratesByToken).filter(t => t !== 'xyzpad');
   const tokenRateKeys = chosenTokensToDisplay.length < 1 ? Object.keys(ratesByToken).filter(t => t !== 'xyzpad') : chosenTokensToDisplay;
 
   const runAddressAnalysis = async (clickEvent: any) => {
+    setLoadingCounter(loadingCounter+1);
     const addressToAnalyze = clickEvent.target.parentElement.children[0].value
     const chartDataForAddress = await getChartDataForAddress(addressToAnalyze, ratesByToken);
     setBalancesByToken({ ...chartDataForAddress })
+    setLoadingCounter(Math.max(0,loadingCounter-1));
   }
 
   const updateMaxDataPoints = (clickEvent: any) => {
@@ -120,12 +151,11 @@ export const App = (props: AppProps) => {
     setRatesByToken(ratesByToken);
   }
 
-  (historicalTickerData as Array<any>).splice(0); // Empty this array to GC its pointer tree instead of wasting memory;
   return (
     <>
     <ThemeProvider theme={theme}>
     <CssBaseline />
-    
+    <LoadingBlock loading={loadingCounter > 0} />
     <Paper>
     <Box sx={{ display: 'flex', flexDirection: 'row', m: 2, justifyContent: "space-between" }}>
       <Box sx={{ display: 'flex', alignItems: "flex-start", flexDirection: 'column' }}>

@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -29,6 +28,18 @@ export const Changelog = (props: any) => {
           '& ul': { padding: 0 },
           '& li': { padding: 0 },
         }}>
+          <ListItem>
+            <ListItemIcon sx={{ minWidth: '30px' }}><AutoAwesomeIcon fontSize="small" /></ListItemIcon>
+            <ListItemText primary="Adding loading spinner for address analysis and initial data" secondary="Feb 24, 2022" />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
+            <ListItemText primary="Forced initial data load of latest data items" secondary="Feb 24, 2022" />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
+            <ListItemText primary="Removed historical data from bundle, requesting it with axios to speed initial load" secondary="Feb 24, 2022" />
+          </ListItem>
           <ListItem>
             <ListItemIcon sx={{ minWidth: '30px' }}><PublishedWithChangesIcon fontSize="small" /></ListItemIcon>
             <ListItemText primary="Formatted numbers with commas and reduced decimals" secondary="Feb 22, 2022" />
