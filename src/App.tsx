@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { ExplorerTokenMarket, ITokenRate } from "ergo-market-lib";
+import { math } from "ergo-market-lib/dist/math";
 import { getChartDataForAddress, AddressCharts } from './AddressCharts'
 import moment from 'moment';
 import * as React from "react";
@@ -45,13 +46,26 @@ const updateLocalStorageFromTickerRatesDict = (newRatesByToken: RatesDictionary)
   window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(localStorageRates));
 }
 
+// let result: ITokenRate[] = [];
+// tokenRates.reduce((acc: any, tokenRate: ITokenRate) => {
+//   const { token: { tokenId } } = tokenRate;
+//   if (acc[tokenId] === undefined) acc[tokenId] = tokenRate
+//   if (parseFloat(acc[tokenId].ergAmount) > parseFloat(math.evaluate?.(`${tokenRate.ergAmount} / 2`) || '0')) {
+//     acc[tokenId] = tokenRate;
+//     result.push(tokenRate);
+//   }
+//   return acc;
+// }, {})
+
 const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary, maxRatesNumber: number = 5000): RatesDictionary => {
   return rates.reduce((acc: any, cur) => {
     if (tokenInfosById[cur.token.tokenId] === undefined) return acc;
     const tokenKey = tokenInfosById[cur.token.tokenId]?.name;
     const ratesForThisToken = acc[tokenKey] = acc[tokenKey] || [];
-    const previousRate = ratesForThisToken.pop();
+    const previousRate: ITokenRate = ratesForThisToken.pop();
     previousRate && ratesForThisToken.push(previousRate);
+    if (math.evaluate?.( `${cur.ergAmount} < (${previousRate?.ergAmount || '0'} / 2)`)) return acc;
+    if (math.evaluate?.( `${cur.tokenAmount} < (${previousRate?.tokenAmount || '0'} / 2)`)) return acc;
     if(previousRate?.ergPerToken !== cur.ergPerToken || previousRate?.ergAmount !== cur.ergAmount || previousRate?.tokenAmount !== cur.tokenAmount) ratesForThisToken.push(cur);
     while (ratesForThisToken.length > maxRatesNumber) ratesForThisToken.splice(0, 1);
     return acc;
@@ -63,6 +77,7 @@ const initialLoad = async () => {
   const historicalTickerDataResponse = await axios.get<ITokenRate[][]>('ticker.json');
   try {
     postSeedTickerData = JSONBI.parse(window.localStorage.getItem('tickerRatesDict') || '{}');
+    console.log('postSeedTickerData', postSeedTickerData)
   } catch(ex) {
     window.localStorage.setItem('tickerRatesDict', '{}');
     postSeedTickerData = {};
@@ -72,8 +87,20 @@ const initialLoad = async () => {
   const sortedHistoricalData = (historicalTickerData as any).flatMap((a: any) => a).concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])).sort((a: ITokenRate, b: ITokenRate) => 
     moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
   )
+
+  // const historicalTickerData = historicalTickerDataResponse.data[0].sort((a: ITokenRate, b: ITokenRate) => 
+  //   moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
+  // ).filter(tokenRate => math.evaluate?.(`${tokenRate.ergAmount} > 1000`) as boolean);
+  // const sortedHistoricalData = (historicalTickerData as ITokenRate[]).concat(
+  //   Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])
+  // ).sort((a: ITokenRate, b: ITokenRate) => 
+  //   moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
+  // )
+
+  console.log('sortedHistoricalData.length', sortedHistoricalData, sortedHistoricalData.length);
   
   addTokenRatesToDictionary(sortedHistoricalData, startingTickerData);
+  console.log('startingTickerData', startingTickerData);
   historicalTickerData.splice(0); // Empty this array to GC its pointer tree instead of wasting memory;
 }
 
