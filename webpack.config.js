@@ -32,19 +32,8 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.svg$/,
-        use: 'file-loader'
-      },
-      {
-        test: /\.png$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
+        test: /\.(png|gif|jpe?g|svg)$/,
+        type: 'asset/resource'
       }
     ]
   },
@@ -58,7 +47,7 @@ const config = {
   ],
   devServer: {
     'static': {
-      directory: './dist'
+      directory: path.resolve(__dirname, 'docs')
     }
   },
   resolve: {

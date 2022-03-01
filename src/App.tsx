@@ -23,7 +23,9 @@ import { RatesDictionary, TransactionList } from './types';
 import { ChartData } from './MyChart';
 import { Typography } from '@mui/material';
 import { CopyToClipboard } from './CopyToClipboard'
-import { Changelog } from './Changelog';
+import { changeLogItems } from './changelog';
+import { todoItems } from './todos';
+import { ExpandableList } from './ExpandableList';
 import { LoadingBlock } from './LoadingBlock'
 
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
@@ -46,17 +48,6 @@ const updateLocalStorageFromTickerRatesDict = (newRatesByToken: RatesDictionary)
   window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(localStorageRates));
 }
 
-// let result: ITokenRate[] = [];
-// tokenRates.reduce((acc: any, tokenRate: ITokenRate) => {
-//   const { token: { tokenId } } = tokenRate;
-//   if (acc[tokenId] === undefined) acc[tokenId] = tokenRate
-//   if (parseFloat(acc[tokenId].ergAmount) > parseFloat(math.evaluate?.(`${tokenRate.ergAmount} / 2`) || '0')) {
-//     acc[tokenId] = tokenRate;
-//     result.push(tokenRate);
-//   }
-//   return acc;
-// }, {})
-
 const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary, maxRatesNumber: number = 5000): RatesDictionary => {
   return rates.reduce((acc: any, cur) => {
     if (tokenInfosById[cur.token.tokenId] === undefined) return acc;
@@ -74,7 +65,7 @@ const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictiona
 
 const initialLoad = async () => {
   // Add historical data points from seeded data and browser local storage to form initial ticker data
-  const historicalTickerDataResponse = await axios.get<ITokenRate[][]>('ticker.json');
+  const historicalTickerDataResponse = await axios.get<ITokenRate[][]>(`ticker.json?${changeLogItems.length}`); // Break cache every time the changelog indicates an update
   try {
     postSeedTickerData = JSONBI.parse(window.localStorage.getItem('tickerRatesDict') || '{}');
     console.log('postSeedTickerData', postSeedTickerData)
@@ -136,7 +127,7 @@ export const App = (props: any) => {
 
   if (marketRequestsInterval === -1 && initialLoadComplete) {
     getRates();
-    setMarketRequestsInterval(setInterval(getRates, 120000));
+    setMarketRequestsInterval(setInterval(getRates, 10 * 60 * 1000));
   }
 
   const stopRetrievingData = () => {
@@ -186,12 +177,13 @@ export const App = (props: any) => {
     <Paper>
     <Box sx={{ display: 'flex', flexDirection: 'row', m: 2, justifyContent: "space-between" }}>
       <Box sx={{ display: 'flex', alignItems: "flex-start", flexDirection: 'column' }}>
-        <Typography variant="h6">Live updating new chart data every 2 minutes</Typography>
+        <Typography variant="h6">Live updating new chart data every 10 minutes</Typography>
         <ToggleButtonGroup color="primary" value={ marketRequestsInterval === undefined ? 'stop' : 'play'} exclusive onChange={onStopOrplayChange}>
           <ToggleButton key="stop" value="stop">Stop</ToggleButton>
           <ToggleButton key="play" value="play">play</ToggleButton>
         </ToggleButtonGroup>
-        <Changelog />
+        <ExpandableList header="Changelog" items={changeLogItems} />
+        <ExpandableList header="Todo" items={todoItems} />
       </Box>
       <Box sx={{ display: 'flex', alignItems: "flex-end", alignSelf: "flex-end", flexDirection: 'column' }}>
         <CopyToClipboard whatToCopy="9fKu1S6PF3ttzqmLq5BHQjqLYGA5TWGifVC3DcVeDtgTvW6b1nG">
@@ -222,7 +214,6 @@ export const App = (props: any) => {
       </ToggleButtonGroup>
     </Box>
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
-      {/* <TextField label="Address" variant="filled" onChange={handleAddressChange} value={addressToAnalyze} /> */}
       <TextField label="Address" fullWidth variant="filled" InputProps={{endAdornment: <Button variant="contained" onClick={runAddressAnalysis as any}>Analyze</Button>}} />
     </Box>
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2 }}>
