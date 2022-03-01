@@ -29,7 +29,32 @@ export const todoItems: ExpandableListItem[] = [{
   secondaryText: 'Currently the entire dataset is iterated multiple times every time an update is needed, simple refactoring can change this'
 },
 {
-  Icon: BugReportIcon,
+  Icon: PublishedWithChangesIcon,
   primaryText: 'Clean up and organize files',
   secondaryText: 'Components should go in a components folder, etc, general organization'
+},
+{
+  Icon: PublishedWithChangesIcon,
+  primaryText: 'Add github link',
+  secondaryText: 'If people want to provide PRs, they are absolutely welcome!'
+},
+{
+  Icon: PublishedWithChangesIcon,
+  primaryText: 'Turn address analysis into a stacked area chart',
+  secondaryText: 'Makes conversions clearer'
+},
+{
+  Icon: PublishedWithChangesIcon,
+  primaryText: 'Add erg to address analysis',
+  secondaryText: 'Makes conversions clearer'
+},
+{
+  Icon: PublishedWithChangesIcon,
+  primaryText: 'Add transaction export to address analysis',
+  secondaryText: 'CSV and or JSON can be useful for people to see price at purchase time from their boxes'
+},
+{
+  Icon: PublishedWithChangesIcon,
+  primaryText: 'Code split the bundle',
+  secondaryText: 'Bundle is massive just because I haven\'t done any code splitting on it'
 }];
