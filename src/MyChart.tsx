@@ -23,12 +23,13 @@ import 'echarts/lib/component/tooltip';
 import {
   CanvasRenderer
 } from 'echarts/renderers';
+import { ChartData } from './types';
 
 // Register the required components
 echarts.use(
   [TitleComponent, TooltipComponent, GridComponent, LineChart, CanvasRenderer, LegendComponent, DataZoomComponent, ToolboxComponent]
 );
-export type ChartData = { value: number; timestamp: string }[];
+
 const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitle?: string) => {
   return {
     tooltip: {

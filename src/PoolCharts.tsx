@@ -4,22 +4,23 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-import { ITokenRate } from "ergo-market-lib";
-import JSONBigInt from 'json-bigint';
 import { getChart } from './MyChart';
-import moment from 'moment';
 import { RatesDictionary } from './types';
 import { Expandable } from './ExpandMore';
-const JSONBI = JSONBigInt({ useNativeBigInt: false });
+import { getChartDataByToken, addRateToPoolData } from './chartDataStore';
+
+const previousTokenRateLengths: { [key: string]: number } = {};
+
 
 const displayChartForData = (ratesByToken: RatesDictionary, tokenRateKey: string, valueField: string, argumentField: string, tokenName: string) => {
-    if (ratesByToken[tokenRateKey].map === undefined) return (<Typography key={tokenName} variant="h3" align="center">{tokenName}</Typography>)
-    const priceData = ratesByToken[tokenRateKey].map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: rate.ergPerToken}))
-    const tokenAmountData = ratesByToken[tokenRateKey].map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: JSONBI.parse(rate.tokenAmount || '0.0')}))
-    const ergAmountData = ratesByToken[tokenRateKey].map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: JSONBI.parse(rate.ergAmount || '0.0')}))
-    const ergMarketSizeData = ratesByToken[tokenRateKey]
-      .filter((rate: ITokenRate) => rate.ergAmount !== undefined)
-      .map((rate: ITokenRate) => ({ timestamp: moment(rate.timestamp).toISOString(), value: (parseFloat(rate.ergAmount) + (JSONBI.parse(rate.tokenAmount) * parseFloat(rate.ergPerToken.toString()))) }))
+    if (ratesByToken[tokenRateKey]?.map === undefined) return (<Typography key={tokenName} variant="h3" align="center">{tokenName}</Typography>)
+    previousTokenRateLengths[tokenRateKey] = previousTokenRateLengths[tokenRateKey] || 0;
+    const { priceData, tokenAmountData, ergAmountData, ergMarketSizeData } = getChartDataByToken(tokenRateKey);
+    if (previousTokenRateLengths[tokenRateKey] < ratesByToken[tokenRateKey].length)
+    {
+      ratesByToken[tokenRateKey].slice(previousTokenRateLengths[tokenRateKey]).forEach(addRateToPoolData(tokenRateKey));
+      previousTokenRateLengths[tokenRateKey] = ratesByToken[tokenRateKey].length
+    }
     return <>
       <Card key={tokenRateKey} sx={{ m: 2 }} variant="elevation">
         <Typography variant="h3" align="center">{tokenName}</Typography>

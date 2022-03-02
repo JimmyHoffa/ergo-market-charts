@@ -1,6 +1,6 @@
 import * as React from 'react';
 import JSONBigInt from 'json-bigint';
-import { RatesDictionary, TransactionList } from './types'
+import { RatesDictionary, ChartData } from './types'
 import { tokenInfosById, tokenInfosByName } from './tokenDictionary';
 import { ExplorerTokenMarket } from "ergo-market-lib/dist/ExplorerTokenMarket";
 import { ITimestampedBox } from "ergo-market-lib/dist/interfaces/explorer/IBox";
@@ -13,7 +13,6 @@ import { getChart } from './MyChart';
 import moment from 'moment';
 
 import { Expandable } from './ExpandMore';
-import { ChartData } from './MyChart'
   
 const explorerTokenMarket = new ExplorerTokenMarket();
 const JSONBI = JSONBigInt({ useNativeBigInt: false });

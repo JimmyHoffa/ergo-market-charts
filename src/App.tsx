@@ -19,23 +19,18 @@ import { PoolCharts } from './PoolCharts';
 import JSONBigInt from 'json-bigint';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './theme';
-import { RatesDictionary, TransactionList } from './types';
-import { ChartData } from './MyChart';
+import { RatesDictionary, ChartData, TransactionList } from './types';
 import { Typography } from '@mui/material';
 import { CopyToClipboard } from './CopyToClipboard'
 import { changeLogItems } from './changelog';
 import { todoItems } from './todos';
 import { ExpandableList } from './ExpandableList';
 import { LoadingBlock } from './LoadingBlock'
+import { addTokenRatesToDictionary } from './chartDataStore';
 
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
 
 const explorerTokenMarket = new ExplorerTokenMarket({ throwOnError: false });
-interface AppState {
-  ratesByToken: { [key: string]: ITokenRate[] }
-};
-
-(window as any).JSONBI = JSONBI;
 
 let startingTickerData: RatesDictionary = {};
 let postSeedTickerData: RatesDictionary = {};
@@ -46,21 +41,6 @@ const updateLocalStorageFromTickerRatesDict = (newRatesByToken: RatesDictionary)
     return acc;
   }, {});
   window.localStorage.setItem('tickerRatesDict', JSONBI.stringify(localStorageRates));
-}
-
-const addTokenRatesToDictionary = (rates: ITokenRate[], ratesDict: RatesDictionary, maxRatesNumber: number = 5000): RatesDictionary => {
-  return rates.reduce((acc: any, cur) => {
-    if (tokenInfosById[cur.token.tokenId] === undefined) return acc;
-    const tokenKey = tokenInfosById[cur.token.tokenId]?.name;
-    const ratesForThisToken = acc[tokenKey] = acc[tokenKey] || [];
-    const previousRate: ITokenRate = ratesForThisToken.pop();
-    previousRate && ratesForThisToken.push(previousRate);
-    if (math.evaluate?.( `${cur.ergAmount} < (${previousRate?.ergAmount || '0'} / 2)`)) return acc;
-    if (math.evaluate?.( `${cur.tokenAmount} < (${previousRate?.tokenAmount || '0'} / 2)`)) return acc;
-    if(previousRate?.ergPerToken !== cur.ergPerToken || previousRate?.ergAmount !== cur.ergAmount || previousRate?.tokenAmount !== cur.tokenAmount) ratesForThisToken.push(cur);
-    while (ratesForThisToken.length > maxRatesNumber) ratesForThisToken.splice(0, 1);
-    return acc;
-  }, ratesDict);
 }
 
 const initialLoad = async () => {
@@ -74,19 +54,9 @@ const initialLoad = async () => {
     postSeedTickerData = {};
   }
 
-  const historicalTickerData = historicalTickerDataResponse.data;
-  const sortedHistoricalData = (historicalTickerData as any).flatMap((a: any) => a).concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])).sort((a: ITokenRate, b: ITokenRate) => 
-    moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
-  )
-
-  // const historicalTickerData = historicalTickerDataResponse.data[0].sort((a: ITokenRate, b: ITokenRate) => 
-  //   moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
-  // ).filter(tokenRate => math.evaluate?.(`${tokenRate.ergAmount} > 1000`) as boolean);
-  // const sortedHistoricalData = (historicalTickerData as ITokenRate[]).concat(
-  //   Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key])
-  // ).sort((a: ITokenRate, b: ITokenRate) => 
-  //   moment(a.timestamp).isSameOrBefore(moment(b.timestamp)) ? -1 : 1
-  // )
+  const historicalTickerData: ITokenRate[][] = historicalTickerDataResponse.data;
+  const sortedHistoricalData = historicalTickerData[0]
+    .concat(Object.keys(postSeedTickerData).flatMap(key => postSeedTickerData[key]));
 
   console.log('sortedHistoricalData.length', sortedHistoricalData, sortedHistoricalData.length);
   
@@ -104,45 +74,39 @@ export const App = (props: any) => {
   const [initialLoadComplete, setInitialLoadComplete] = React.useState(false);
   const [marketRequestsInterval, setMarketRequestsInterval] = React.useState(-1 as any);
 
-  if (!initialLoadComplete) {
-    initialLoad().then(() => {
-      setInitialLoadComplete(true);
-      setLoadingCounter(Math.max(0,loadingCounter-1));
-      getRates();
-    }, () => {
-      setInitialLoadComplete(true);
-      setLoadingCounter(Math.max(0,loadingCounter-1));
-    });
-  }
-
   const getRates = async () => {
     if (!initialLoadComplete) return;
-    setLoadingCounter(loadingCounter+1);
     const rates = await explorerTokenMarket.getTokenRates();
+    setLoadingCounter(loadingCounter+1);
     const newRatesByToken = addTokenRatesToDictionary(rates, ratesByToken, maxTokenRatesPerToken);
+    setLoadingCounter(Math.max(0,loadingCounter-1));
     setRatesByToken({ ...newRatesByToken });
     updateLocalStorageFromTickerRatesDict(newRatesByToken);
-    setLoadingCounter(Math.max(0,loadingCounter-1));
   };
 
-  if (marketRequestsInterval === -1 && initialLoadComplete) {
+  const startPolling = () => {
+    clearInterval(marketRequestsInterval);
     getRates();
     setMarketRequestsInterval(setInterval(getRates, 10 * 60 * 1000));
   }
 
-  const stopRetrievingData = () => {
-    clearInterval(marketRequestsInterval);
-    setMarketRequestsInterval(undefined);
-  }
-
-  const resumeRetrievingData = () => {
-    clearInterval(marketRequestsInterval);
-    setMarketRequestsInterval(-1);
-  }
+  React.useEffect(() => {
+    initialLoad().then(() => {
+      setInitialLoadComplete(true);
+      setLoadingCounter(Math.max(0,loadingCounter-1));
+      startPolling();
+    }, () => {
+      setInitialLoadComplete(true);
+      setLoadingCounter(Math.max(0,loadingCounter-1));
+      startPolling();
+    });    
+  }, []);
 
   const onStopOrplayChange = (event: any, newValue: any) => {
-    if (newValue === 'stop') stopRetrievingData();
-    else resumeRetrievingData();
+    if (newValue === 'stop') {
+      clearInterval(marketRequestsInterval);
+      setMarketRequestsInterval(undefined);
+    } else startPolling();
   }
 
   const handleTokenChange = (a: any, chosenTokens: string[]) => {
@@ -158,15 +122,6 @@ export const App = (props: any) => {
     const chartDataForAddress = await getChartDataForAddress(addressToAnalyze, ratesByToken);
     setBalancesByToken({ ...chartDataForAddress })
     setLoadingCounter(Math.max(0,loadingCounter-1));
-  }
-
-  const updateMaxDataPoints = (clickEvent: any) => {
-    const maxDataPoints = parseInt(clickEvent.target.parentElement.children[0].value || maxTokenRatesPerToken)
-    setMaxTokenRatesPerToken(maxDataPoints);
-    Object.values(ratesByToken).forEach((tokenRates: ITokenRate[]) => {
-      while (tokenRates.length > maxDataPoints) tokenRates.splice(0, 1);
-    })
-    setRatesByToken(ratesByToken);
   }
 
   return (
@@ -192,20 +147,6 @@ export const App = (props: any) => {
         <Typography component={(compProps) => <img src="tip-qr.png" height="100" width="100" {...compProps} ></img>}></Typography>
       </Box>
     </Box>
-    {/* <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 2 }}>
-      <Typography variant="h6">Improve UI performance by reducing max data points per token:</Typography>
-      <TextField
-          id="outlined-number"
-          label="Data points per token"
-          type="number"
-          variant="filled"
-          defaultValue={5000}
-          InputLabelProps={{shrink: true}}
-          InputProps={{
-            endAdornment: (<Button variant="contained" onClick={updateMaxDataPoints as any}>Update</Button>)
-          }}
-        />
-    </Box> */}
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', m: 2 }}>
       <ToggleButtonGroup color="primary" value={ chosenTokensToDisplay } onChange={handleTokenChange}>
         {tokenRateKeysToChooseFrom.map((tokenRateKey) => {
