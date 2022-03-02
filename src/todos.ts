@@ -19,16 +19,6 @@ export const todoItems: ExpandableListItem[] = [{
   secondaryText: 'Being able to go directly to a pool, swap, or stake screen from links on this UI would be good'
 },
 {
-  Icon: BugReportIcon,
-  primaryText: 'Correct the issue with pool charting',
-  secondaryText: 'ErgoPad and SigUSD have some values for Ergo amount in pool that are showing up as blank and charting strange'
-},
-{
-  Icon: BugReportIcon,
-  primaryText: 'Reduce times the full data is iterated to improve performance',
-  secondaryText: 'Currently the entire dataset is iterated multiple times every time an update is needed, simple refactoring can change this'
-},
-{
   Icon: PublishedWithChangesIcon,
   primaryText: 'Clean up and organize files',
   secondaryText: 'Components should go in a components folder, etc, general organization'

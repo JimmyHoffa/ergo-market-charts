@@ -4,6 +4,26 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { ExpandableListItem } from './ExpandableList';
 
 export const changeLogItems: ExpandableListItem[] = [{
+  Icon: BugReportIcon,
+  primaryText: 'Fixed bug in realtime updating not starting by default',
+  secondaryText: 'Mar 2, 2022'
+},
+{
+  Icon: BugReportIcon,
+  primaryText: 'Fixed issue with some token pools having missing data points',
+  secondaryText: 'Mar 1, 2022'
+},
+{
+  Icon: PublishedWithChangesIcon,
+  primaryText: 'Added todo list',
+  secondaryText: 'Mar 1, 2022'
+},
+{
+  Icon: PublishedWithChangesIcon,
+  primaryText: 'Improved performance significantly',
+  secondaryText: 'Mar 1, 2022'
+},
+{
   Icon: PublishedWithChangesIcon,
   primaryText: 'Added cache breaking to historical data on changelog updates',
   secondaryText: 'Mar 1, 2022'

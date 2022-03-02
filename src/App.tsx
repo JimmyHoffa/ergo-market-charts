@@ -71,11 +71,9 @@ export const App = (props: any) => {
   const [balancesByToken, setBalancesByToken] = React.useState<{ [key: string]: ChartData; }>({});
   const [maxTokenRatesPerToken, setMaxTokenRatesPerToken] = React.useState<number>(5000);
   const [loadingCounter, setLoadingCounter] = React.useState<number>(1);
-  const [initialLoadComplete, setInitialLoadComplete] = React.useState(false);
-  const [marketRequestsInterval, setMarketRequestsInterval] = React.useState(-1 as any);
+  const [marketRequestsTimeout, setMarketRequestsTimeout] = React.useState(-1 as any);
 
   const getRates = async () => {
-    if (!initialLoadComplete) return;
     const rates = await explorerTokenMarket.getTokenRates();
     setLoadingCounter(loadingCounter+1);
     const newRatesByToken = addTokenRatesToDictionary(rates, ratesByToken, maxTokenRatesPerToken);
@@ -84,29 +82,27 @@ export const App = (props: any) => {
     updateLocalStorageFromTickerRatesDict(newRatesByToken);
   };
 
-  const startPolling = () => {
-    clearInterval(marketRequestsInterval);
-    getRates();
-    setMarketRequestsInterval(setInterval(getRates, 10 * 60 * 1000));
+  const pollNow = async () => {
+    clearTimeout(marketRequestsTimeout);
+    await getRates();
+    setMarketRequestsTimeout(setTimeout(pollNow, 10 * 60 * 1000));
   }
 
   React.useEffect(() => {
     initialLoad().then(() => {
-      setInitialLoadComplete(true);
       setLoadingCounter(Math.max(0,loadingCounter-1));
-      startPolling();
+      pollNow();
     }, () => {
-      setInitialLoadComplete(true);
       setLoadingCounter(Math.max(0,loadingCounter-1));
-      startPolling();
+      pollNow();
     });    
   }, []);
 
   const onStopOrplayChange = (event: any, newValue: any) => {
     if (newValue === 'stop') {
-      clearInterval(marketRequestsInterval);
-      setMarketRequestsInterval(undefined);
-    } else startPolling();
+      clearTimeout(marketRequestsTimeout);
+      setMarketRequestsTimeout(undefined);
+    } else pollNow();
   }
 
   const handleTokenChange = (a: any, chosenTokens: string[]) => {
@@ -133,7 +129,7 @@ export const App = (props: any) => {
     <Box sx={{ display: 'flex', flexDirection: 'row', m: 2, justifyContent: "space-between" }}>
       <Box sx={{ display: 'flex', alignItems: "flex-start", flexDirection: 'column' }}>
         <Typography variant="h6">Live updating new chart data every 10 minutes</Typography>
-        <ToggleButtonGroup color="primary" value={ marketRequestsInterval === undefined ? 'stop' : 'play'} exclusive onChange={onStopOrplayChange}>
+        <ToggleButtonGroup color="primary" value={ marketRequestsTimeout === undefined ? 'stop' : 'play'} exclusive onChange={onStopOrplayChange}>
           <ToggleButton key="stop" value="stop">Stop</ToggleButton>
           <ToggleButton key="play" value="play">play</ToggleButton>
         </ToggleButtonGroup>
