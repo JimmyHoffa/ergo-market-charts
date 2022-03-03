@@ -10,6 +10,11 @@ export const todoItems: ExpandableListItem[] = [{
 },
 {
   Icon: AutoAwesomeIcon,
+  primaryText: 'Add ability to add multiple addresses to analyze',
+  secondaryText: 'Currently you may only analyze one address while your wallet may have holdings spread over multiple addresses'
+},
+{
+  Icon: AutoAwesomeIcon,
   primaryText: 'Add liquidity pool valuation to the address analysis',
   secondaryText: 'Currently have to click through ErgoDEX liquidity withdrawal to see your position value'
 },
@@ -27,16 +32,6 @@ export const todoItems: ExpandableListItem[] = [{
   Icon: PublishedWithChangesIcon,
   primaryText: 'Add github link',
   secondaryText: 'If people want to provide PRs, they are absolutely welcome!'
-},
-{
-  Icon: PublishedWithChangesIcon,
-  primaryText: 'Turn address analysis into a stacked area chart',
-  secondaryText: 'Makes conversions clearer'
-},
-{
-  Icon: PublishedWithChangesIcon,
-  primaryText: 'Add erg to address analysis',
-  secondaryText: 'Makes conversions clearer'
 },
 {
   Icon: PublishedWithChangesIcon,

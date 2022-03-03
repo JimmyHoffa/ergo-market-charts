@@ -33,6 +33,11 @@ export const xyzpad = {
     tokenId: '29275cf36ffae29ed186df55ac6f8d47b367fe8e398721e200acb71bc32b10a0',
     decimals: 0
 };
+export const nergs = {
+  name: 'Σ',
+  tokenId: 'nergs',
+  decimals: 9
+};
 
 export const tokenInfosArray = [
     LunaDog,
@@ -41,7 +46,8 @@ export const tokenInfosArray = [
     SigRSV,
     SigUSD,
     Erdoge,
-    xyzpad
+    xyzpad,
+    nergs
 ]
 
 export const tokenInfosById = tokenInfosArray.reduce((acc: any, cur) => {

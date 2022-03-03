@@ -88,9 +88,10 @@ const getChartOptionsWithoutData = (tokenName: string, data: ChartData, axisTitl
     }
   };
 }
-
-export const getChart = (tokenName: string, data: ChartData, axisTitle?: string) => {
-  const chartOptions = getChartOptionsWithoutData(tokenName, data, axisTitle);
+const blank: any = {};
+export const getChart = (tokenName: string, data: ChartData, axisTitle?: string, otherChartOptions: any = blank) => {
+  const chartOptions = { ...getChartOptionsWithoutData(tokenName, data, axisTitle), ...otherChartOptions};
+  if (otherChartOptions !== blank) console.log('CHARTOPTTTT', chartOptions);
   return (<ReactEChartsCore
     theme="dark"
     echarts={echarts}

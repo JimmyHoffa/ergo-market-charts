@@ -114,10 +114,13 @@ export const App = (props: any) => {
 
   const runAddressAnalysis = async (clickEvent: any) => {
     setLoadingCounter(loadingCounter+1);
-    const addressToAnalyze = clickEvent.target.parentElement.children[0].value
-    const chartDataForAddress = await getChartDataForAddress(addressToAnalyze, ratesByToken);
-    setBalancesByToken({ ...chartDataForAddress })
-    setLoadingCounter(Math.max(0,loadingCounter-1));
+    try {
+      const addressToAnalyze = clickEvent.target.parentElement.children[0].value
+      const chartDataForAddress = await getChartDataForAddress(addressToAnalyze, ratesByToken);
+      setBalancesByToken({ ...chartDataForAddress })
+    } finally {
+      setLoadingCounter(Math.max(0,loadingCounter-1));
+    }
   }
 
   return (

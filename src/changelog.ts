@@ -4,6 +4,16 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { ExpandableListItem } from './ExpandableList';
 
 export const changeLogItems: ExpandableListItem[] = [{
+    Icon: AutoAwesomeIcon,
+    primaryText: 'Turned address analysis into a stacked area chart',
+    secondaryText: 'Mar 3, 2022'
+  },
+  {
+    Icon: PublishedWithChangesIcon,
+    primaryText: 'Add erg to address analysis',
+    secondaryText: 'Mar 3, 2022'
+  },
+  {
   Icon: BugReportIcon,
   primaryText: 'Fixed bug in realtime updating not starting by default',
   secondaryText: 'Mar 2, 2022'

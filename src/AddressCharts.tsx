@@ -13,40 +13,111 @@ import { getChart } from './MyChart';
 import moment from 'moment';
 
 import { Expandable } from './ExpandMore';
+import { ITokenRate } from 'ergo-market-lib/dist/interfaces/ITokenRate';
   
 const explorerTokenMarket = new ExplorerTokenMarket();
 const JSONBI = JSONBigInt({ useNativeBigInt: false });
 
+type BalanceTimeline = { tokenBalances: { [key: string]: number }; box: ITimestampedBox; timestamp: number }[];
+
 export const getChartDataForAddress = async (addr: string, tokenRates: RatesDictionary): Promise<{ [key: string]: ChartData }> => {
-  const balancesOverTime: { tokenBalances: { [key: string]: number }; box: ITimestampedBox; timestamp: number }[] = await explorerTokenMarket.getBalanceTimelineAtAddress(addr);
+  const balancesOverTime: BalanceTimeline = await explorerTokenMarket.getBalanceTimelineAtAddress(addr);
   if (balancesOverTime === undefined || balancesOverTime.length < 1) return {};
-  const tokensWithBalances = Object.keys(balancesOverTime.slice(-1)[0].tokenBalances)
-  const balancesData: { [key: string]: ChartData } = {};
-  tokensWithBalances.forEach(tokenId => {
-    const tokenInfo = tokenInfosById[tokenId];
-    const tokenKey = tokenInfo?.name || tokenId;
-    const ratesForToken = tokenRates[tokenKey];
-    if (ratesForToken === undefined || ratesForToken.length < 1) return; // Don't have price rates for this token, oh well
-    const firstBalanceTimestamp = balancesOverTime[0].timestamp;
-    const firstBalanceRateIndex = Math.max(1, ratesForToken.findIndex(rate => rate.timestamp > firstBalanceTimestamp)) - 1
-    for(let rateIndex = firstBalanceRateIndex; rateIndex < ratesForToken.length; rateIndex++) {
-      const currentRate = ratesForToken[rateIndex];
-      const attemptedBalanceIndex = balancesOverTime.findIndex(bal => bal.timestamp > currentRate.timestamp);
-      const currentBalanceIndex = (attemptedBalanceIndex === -1 ? balancesOverTime.length : Math.max(1, attemptedBalanceIndex)) - 1;
-      const currentBalance = balancesOverTime[currentBalanceIndex];
-      balancesData[tokenKey] = balancesData[tokenKey] || [];
-      const currentTokenBalance = renderFractions((currentBalance.tokenBalances[tokenId] || 0).toString(), tokenInfo.decimals);
-      const ergValue = math.evaluate?.(`${currentTokenBalance} * ${currentRate.ergPerToken}`).toFixed(3);
-      balancesData[tokenKey].push({value: ergValue, timestamp: moment(currentRate.timestamp).toISOString()});
-    }
+
+  const firstBalanceTimestamp: number = parseInt(balancesOverTime[0].timestamp as any);
+  tokenRates[tokenInfosById.nergs.name] = [{
+    ergPerToken: 1,
+    tokenPerErg: 1,
+    tokenAmount: '0',
+    ergAmount: '0',
+    timestamp: 1,
+    globalIndex: 0,
+    token: tokenInfosById.nergs
+  }];
+  // tokenRates = { ...tokenRates, [tokenInfosById.nergs.name]: [{
+  //   ergPerToken: 1,
+  //   tokenPerErg: 1,
+  //   tokenAmount: '0',
+  //   ergAmount: '0',
+  //   timestamp: 1,
+  //   globalIndex: 0,
+  //   token: tokenInfosById.nergs
+  // }]};
+
+  const tokenRateKeys = Object.keys(tokenRates);
+
+  let lastTokenRates = tokenRateKeys.reduce<{ [key: string]: ITokenRate, timestamp: any }>((acc, cur) => {
+    const tokenRate = {
+      ...tokenRates[cur][0],
+      ergPerToken: 0.0,
+      tokenPerErg: 0.0,
+      ergAmount: '0.0',
+      tokenAmount: '0.0',
+    };
+    acc[cur] = tokenRate;
+    acc.timestamp = tokenRate.timestamp;
+    return acc;
+  }, { timestamp: 0 as any });
+  lastTokenRates[tokenInfosById.nergs.name].ergPerToken = 1;
+  lastTokenRates[tokenInfosById.nergs.name].tokenPerErg = 1;
+
+  const tokenRatesAtTimestamp: { [key: string]: ITokenRate, timestamp: any }[] = [];
+  const allTokenRates = tokenRateKeys.flatMap(tokenRateKey => tokenRates[tokenRateKey]).sort((a, b) => a.timestamp > b.timestamp ? 1 : -1)
+  allTokenRates.forEach(tokenRate => {
+    const tokenRateKey = tokenRate.token.name || tokenRate.token.tokenId;
+    lastTokenRates[tokenRateKey] = tokenRate;
+    tokenRatesAtTimestamp[parseInt(tokenRate.timestamp as any)] = { ...lastTokenRates, timestamp: parseInt(tokenRate.timestamp as any) as any }; // Clone so next update doesn't modify this instance
   })
-  return balancesData;
+
+  const rateTimestamps: string[] = Object.keys(tokenRatesAtTimestamp);
+  const firstBalanceRateIndex = Math.max(1, rateTimestamps.findIndex(timestamp => parseInt(timestamp) > firstBalanceTimestamp)) - 1;
+
+  let lastBalances = tokenRateKeys.reduce<{ [key: string]: number }>((acc, tokenRateKey) => {
+    const tokenInfo = tokenInfosByName[tokenRateKey];
+    const tokenId = tokenInfo?.tokenId || tokenRateKey;
+    acc[tokenId] = 0;
+    return acc;
+  }, { });
+
+  // let printCounter = 0;
+  const results = tokenRateKeys.reduce<{ [key: string]: ChartData }>((acc, cur) => {
+    acc[cur] = [];
+    return acc;
+  }, {});
+  for(let rateIndex = firstBalanceRateIndex; rateIndex < rateTimestamps.length; rateIndex++) {
+    const currentTimestamp = parseInt(rateTimestamps[rateIndex]);
+    const currentRate = tokenRatesAtTimestamp[currentTimestamp];
+    const attemptedBalanceIndex = balancesOverTime.findIndex(bal => parseInt(bal.timestamp as any) > parseInt(currentRate.timestamp));
+    const currentBalanceIndex = (attemptedBalanceIndex === -1 ? balancesOverTime.length : Math.max(1, attemptedBalanceIndex)) - 1;
+    const currentBalance = balancesOverTime[currentBalanceIndex];
+    const newTokenBalances = { ...lastBalances, ...currentBalance.tokenBalances };
+    Object.keys(currentBalance.tokenBalances).forEach(tokenId => {
+      const tokenInfo = tokenInfosById[tokenId];
+      const tokenKey = tokenInfo?.name || tokenId;
+      newTokenBalances[tokenKey] = currentBalance.tokenBalances[tokenKey];
+    })
+    lastBalances = newTokenBalances;
+    tokenRateKeys.forEach(tokenRateKey => {
+      const tokenRate = currentRate[tokenRateKey]
+      const tokenAmount = lastBalances[tokenRate.token.tokenId] || 0;
+      const tokenAmountWithDecimals = renderFractions(tokenAmount, tokenRate.token.decimals);
+      const tokenValue = math.evaluate?.(`${tokenAmountWithDecimals} * ${tokenRate.ergPerToken}`).toFixed(3);
+      results[tokenRateKey].push({ timestamp: parseInt(currentTimestamp as any) as any, value: parseFloat(tokenValue) });
+
+      // if (printCounter < 10 && attemptedBalanceIndex > 1) {
+      //   printCounter++;
+      //   console.log('balancesOverTime, currentBalanceIndex, attemptedBalanceIndex, tokenAmount, tokenRate, tokenAmountWithDecimals, tokenValue, lastBalances', {balancesOverTime, currentBalanceIndex, attemptedBalanceIndex, tokenAmount, tokenRate, tokenAmountWithDecimals, tokenValue, lastBalances});
+      // }
+    })
+  }
+
+  return results;
 };
 
 
 type AddressChartsProps = { tokenRateKeys: string[]; balancesByToken: { [key: string]: ChartData }; ratesByToken: RatesDictionary };
 export const AddressCharts = (props: AddressChartsProps) => {
-  const { tokenRateKeys, balancesByToken, ratesByToken } = props;
+  const { tokenRateKeys, balancesByToken } = props;
 
   if (Object.keys(balancesByToken).length < 1) return (<>
     <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '100%' }}>
@@ -56,11 +127,55 @@ export const AddressCharts = (props: AddressChartsProps) => {
     </Box>
   </>);
 
+const otherChartOptions = {
+  grid: {
+    containLabel: true, left: 10, right: 20, bottom: 0, top: 50,
+  },
+  legend: {
+    data: tokenRateKeys
+  },
+  xAxis: {
+    type: "time",
+    data: balancesByToken[tokenRateKeys[0]].map(({timestamp}) => timestamp),
+    boundaryGap: false,
+    smooth: true
+    // axisTick: {
+    //   alignWithLabel: true
+    // },
+    // axisLabel: {
+    //   rotate: 30
+    // }
+  },
+  series: tokenRateKeys.map((tokenRateKey) => {
+    return {
+      data: balancesByToken[tokenRateKey].map(({timestamp, value}) => ({
+        name: tokenRateKey,
+        value: [timestamp, value],
+      })),
+      type: 'line',
+      name: tokenRateKey,
+      showSymbol: false,
+      stack: 'Total',
+      areaStyle: {},        
+      emphasis: {
+        focus: 'series'
+      },
+    };
+  })
+}
   return (
   <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '100%' }}>
     <Card variant="outlined">
       <Typography variant="h5" align="center">Address values of tokens over time in Σ</Typography>
       <Expandable initiallyExpanded={true}>
+        <Card sx={{ m: 2 }} variant="elevation">
+          <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', flexWrap: 'wrap'}}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '100%' }}>
+              <Typography variant="h6" align="center">Wallet values in Σ</Typography>
+              { getChart('Σ', [] as any, `values Σ`, otherChartOptions) }
+            </Box>
+          </Box>
+        </Card>
         <Card sx={{ m: 2 }} variant="elevation">
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', flexWrap: 'wrap'}}>
           {tokenRateKeys.map((tokenRateKey) => {

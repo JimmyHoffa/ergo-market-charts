@@ -1,7 +1,7 @@
 import { ITokenRate } from "ergo-market-lib/dist/interfaces/ITokenRate";
 
 
-export type ChartData = { value: number; timestamp: string }[];
+export type ChartData = { value: number; timestamp: Date }[];
 export interface IPoolChartData {
   priceData: ChartData;
   tokenAmountData: ChartData;
