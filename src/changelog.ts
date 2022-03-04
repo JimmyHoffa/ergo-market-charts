@@ -5,6 +5,16 @@ import { ExpandableListItem } from './ExpandableList';
 
 export const changeLogItems: ExpandableListItem[] = [{
     Icon: AutoAwesomeIcon,
+    primaryText: 'Put address analysis main display to have proper current valuation instead of just "values"',
+    secondaryText: 'Mar 4, 2022'
+  },
+  {
+    Icon: BugReportIcon,
+    primaryText: 'Fixed bug in address analysis starting some addresses at unix epoch',
+    secondaryText: 'Mar 4, 2022'
+  },
+  {
+    Icon: AutoAwesomeIcon,
     primaryText: 'Turned address analysis into a stacked area chart',
     secondaryText: 'Mar 3, 2022'
   },

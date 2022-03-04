@@ -10,7 +10,6 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { getChart } from './MyChart';
-import moment from 'moment';
 
 import { Expandable } from './ExpandMore';
 import { ITokenRate } from 'ergo-market-lib/dist/interfaces/ITokenRate';
@@ -30,19 +29,10 @@ export const getChartDataForAddress = async (addr: string, tokenRates: RatesDict
     tokenPerErg: 1,
     tokenAmount: '0',
     ergAmount: '0',
-    timestamp: 1,
+    timestamp: firstBalanceTimestamp,
     globalIndex: 0,
     token: tokenInfosById.nergs
   }];
-  // tokenRates = { ...tokenRates, [tokenInfosById.nergs.name]: [{
-  //   ergPerToken: 1,
-  //   tokenPerErg: 1,
-  //   tokenAmount: '0',
-  //   ergAmount: '0',
-  //   timestamp: 1,
-  //   globalIndex: 0,
-  //   token: tokenInfosById.nergs
-  // }]};
 
   const tokenRateKeys = Object.keys(tokenRates);
 
@@ -163,6 +153,8 @@ const otherChartOptions = {
     };
   })
 }
+// `~${totalErgValue.toLocaleString('en-US', { maximumFractionDigits: 4})} Σ`
+const totalErgValue = tokenRateKeys.reduce((acc, tokenRateKey) => acc + balancesByToken[tokenRateKey].slice(-1)[0].value, 0);
   return (
   <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '100%' }}>
     <Card variant="outlined">
@@ -172,7 +164,7 @@ const otherChartOptions = {
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', flexWrap: 'wrap'}}>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', m: 1, width: '100%' }}>
               <Typography variant="h6" align="center">Wallet values in Σ</Typography>
-              { getChart('Σ', [] as any, `values Σ`, otherChartOptions) }
+              { getChart('Σ', [] as any, `~${totalErgValue.toLocaleString('en-US', { maximumFractionDigits: 4})} Σ`, otherChartOptions) }
             </Box>
           </Box>
         </Card>
