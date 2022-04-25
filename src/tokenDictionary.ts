@@ -38,6 +38,11 @@ export const Paideia = {
     tokenId: '1fd6e032e8476c4aa54c18c1a308dce83940e8f4a28f576440513ed7326ad489',
     decimals: 4
 };
+export const COMET = {
+    name: 'COMET',
+    tokenId: '0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b',
+    decimals: 0
+};
 export const nergs = {
   name: 'Σ',
   tokenId: 'nergs',
@@ -53,7 +58,8 @@ export const tokenInfosArray = [
     Erdoge,
     xyzpad,
     nergs,
-    Paideia
+    Paideia,
+    COMET
 ]
 
 export const tokenInfosById = tokenInfosArray.reduce((acc: any, cur) => {
